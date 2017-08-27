@@ -678,7 +678,6 @@ public class AccountController extends BaseController {
 			e.printStackTrace();
 			result.setIsSuccess(false);
 			result.setMessage("系统发生异常，请稍后重试.");
-			result.setMessage("系统发生异常，请稍后重试.");
 			return result.toJSON();
 		}
 	}
