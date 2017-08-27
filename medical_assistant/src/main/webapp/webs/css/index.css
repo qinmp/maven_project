@@ -1,0 +1,51 @@
+
+.probox {
+	width:600px;
+	height:auto;
+}
+.probox ul li{
+	width:100%;
+	height:auto;
+	line-height:30px;
+}
+.probox ul li dt{
+	float:left;
+}
+.probox ul li dt:nth-child(odd){
+	width:25%;
+	text-align:right;
+}
+.probox ul li dt:nth-child(even){
+	width:75%;
+	text-align:left;
+	text-indent:10px;
+}
+.btn {
+	height:25px;
+	line-height:20px;
+	text-align:center;
+	margin-left:5px;
+}
+.saveAndDeleteBtn{
+	text-align:center;
+}
+.deletebtn{
+	background-color:silver;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	margin-left:5px;
+}
+.savebtn{
+	background-color:silver;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	margin-left:5px;
+}
+.logoutBtnDIV{
+	text-align:right;
+}
+.genReportBtnDIV{
+	text-align:right;
+}

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	     http://www.springframework.org/schema/aop 
+	     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+	     http://www.springframework.org/schema/tx
+     	 http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<context:component-scan base-package="com" />
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:deploy.properties</value><!-- 其他配置文件 -->
+				<value>classpath:db.properties</value><!-- 数据库配置 -->
+			</list>
+		</property>
+	</bean>
+	<!-- 数据源配置,使用应用内的DBCP数据库连接池 -->
+	<bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+		<property name="driver"><value>${database.driver}</value></property>
+		<property name="driverUrl"><value>${database.url}</value></property>
+		<property name="user"><!-- 必须在这里也设置，但是 proxool却不使用它，或许是个bug--><value>${database.user}</value></property>
+		<property name="password"><!-- 必须在这里也设置，但是 proxool却不使用它，或许是个bug--><value>${database.password}</value></property>
+		<property name="alias"><value>${database.alias}</value></property>
+		<property name="houseKeepingSleepTime"><value>30000</value></property>
+		<property name="prototypeCount"><value>5</value></property>
+		<property name="maximumConnectionCount"><value>${database.maximumConnectionCount}</value></property>
+		<property name="minimumConnectionCount"><value>${database.minimumConnectionCount}</value></property>
+		 <!-- maximum-active-time缺省5minutes 172800000毫秒=48小时-->   
+		<property name="maximumActiveTime"><value>172800000</value></property>
+		<property name="testBeforeUse"><value>true</value></property>
+		<property name="houseKeepingTestSql"> <value>select CURRENT_DATE</value> </property><!-- oracle :select sysdate from dual sqlserver:select  getdate()-->
+	</bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="entityInterceptor" ref="entityInterceptor" />
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="packagesToScan">
+			<list>
+				<value>com.model</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.jdbc.batch_size">30</prop>
+                <prop key="hibernate.jdbc.fetch_size">50</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.transaction.factory_class">org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory</prop>
+				<prop key="hibernate.connection.autocommit">false</prop>
+				<!-- 缓存配置 -->
+				<prop key="hibernate.cache.use_query_cache">true</prop><!-- 开启查询缓存 -->
+				<prop key="hibernate.cache.use_second_level_cache">true</prop><!-- 开启二级缓存 -->
+				<!-- hibernate4 二级缓存提供类-->
+				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+				<!-- 二级缓存 ehcache的配置文件位置 -->  
+				<prop key="hibernate.cache.provider_configuration_file_resource_path">ehcache.xml</prop>  
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 数据源和hibernate3的配置 e-->
+
+	<!-- 事物配置 s -->
+	<bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<aop:config proxy-target-class="true" />
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="exists" read-only="true" />
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="query*" read-only="true"/>
+			<tx:method name="save*" propagation="REQUIRED"/>
+			<tx:method name="update*" />
+			<tx:method name="delete*" /> 
+			<tx:method name="*" /> 
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut id="bussinessService"
+			expression="execution(public * com.service..*.*(..)) or execution(public * com.dao..*.*(..))" />
+		<aop:advisor pointcut-ref="bussinessService"
+			advice-ref="txAdvice" />
+	</aop:config>
+	<!-- 注解事务 -->
+	<tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/> 
+	<!-- 事物配置  e-->
+</beans>
