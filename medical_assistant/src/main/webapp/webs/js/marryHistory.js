@@ -23,7 +23,8 @@ $('#saveMarryHistoryModel').click(function(){
 	        if(data.isSuccess ){  
 	            // view("修改成功！");  
 	            alert("保存成功！");  
-	            window.location.href='user/index.html';
+	            window.location.href='user/index.html#marryHistoryHead';
+	            window.location.reload();
 	        }else{  
 	        	alert(data.message);  
 	        	if(data.position=="sessionOut"){
@@ -58,7 +59,8 @@ $('#deleteMarryHistoryModel').click(function(){
 		        if(data.isSuccess ){  
 		            // view("修改成功！");  
 		            alert("删除成功！");  
-		            window.location.href='user/index.html';
+		            window.location.href='user/index.html#marryHistoryHead';
+		            window.location.reload();
 		        }else{  
 		        	alert(data.message); 
 		        	if(data.position=="sessionOut"){

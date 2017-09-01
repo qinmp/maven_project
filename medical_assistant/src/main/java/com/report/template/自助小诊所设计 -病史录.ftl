@@ -44,7 +44,7 @@
 	<span >主诉:</span><br>
 	<#if mainSuits??>
 		<#list mainSuits as model>
-			<span >呈${model.mainSuitContent}于${model.attackTime}发病.</span><br>
+			<span >${model.mainSuitContentFacet}  ${model.timeFacet}.</span><br>
 		</#list>
 	</#if>
 </div>

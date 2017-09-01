@@ -21,7 +21,7 @@ import freemarker.template.Template;
 
 public class FtlUtils {
 	
-	private static String FtlPath = "D:\\Develop\\JavaWorkSpace\\medical_assistant\\src\\main\\java\\com\\report\\template\\";
+	private static String FtlPath = "D:\\Develop\\DeveloperEnv\\git\\medical_assistant\\src\\main\\java\\com\\report\\template";
 	private static String FtlFileName = "自助小诊所设计 -病史录.ftl";
 	private static String ENCODER = "UTF-8";
 	private static final String tempPath = System.getProperty("catalina.home") + File.separator + "temp" + File.separator;

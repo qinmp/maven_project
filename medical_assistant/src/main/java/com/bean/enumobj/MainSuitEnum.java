@@ -43,6 +43,23 @@ public enum MainSuitEnum {
 		return this.content;
 	}
 	
+	/**
+	 * <b>概要：</b>
+	 * 	根据属性值匹配属性
+	 * <b>作者：</b>SUXH </br>
+	 * <b>日期：</b>2015-3-17 </br>
+	 * @param value 需要匹配的属性值
+	 * @return
+	 */
+	public static MainSuitEnum convertByValue(Integer value){
+        for (MainSuitEnum mainSuit:MainSuitEnum.values()) {  
+            if (mainSuit.getValue() == value) {  
+                return mainSuit;  
+            }  
+        }  
+        return null;  
+	}
+	
 	boolean isFever(Integer value){
 		return FERVER.getValue().equals(value);
 	}

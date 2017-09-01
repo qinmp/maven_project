@@ -1,6 +1,8 @@
 package com.model;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,9 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import com.bean.enumobj.MainSuitEnum;
+import com.util.DateUtil;
 
 
 /**
@@ -44,7 +50,36 @@ public class MainSuit extends BaseModel  {
      private Timestamp updateTime;
      private Long accountId;
 
-    // Constructors
+     @Transient
+     public String getMainSuitContentFacet(){
+    	 MainSuitEnum mainSuit =  MainSuitEnum.convertByValue(this.mainSuitValue);
+    	 return mainSuit.getContent();
+     }
+     
+     @Transient
+     public String getTimeFacet(){
+    	 Integer twoDayDistance = DateUtil.daysOfTwo(this.attackTime, new Date());
+    	 if(twoDayDistance <= 6){
+    		 return twoDayDistance + "天";
+    	 } else if(twoDayDistance <= 30){
+    		 double f = twoDayDistance/7.0;  
+    		 BigDecimal b = new BigDecimal(f);
+    		 double f1 = b.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue();  
+    		 return f1 + "周";
+    	 } else if(twoDayDistance <= 365){
+    		 double f = twoDayDistance/30.0;  
+    		 BigDecimal b = new BigDecimal(f);
+    		 double f1 = b.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue();  
+    		 return f1 + "月";
+    	 } else{
+    		 double f = twoDayDistance/365.0;  
+    		 BigDecimal b = new BigDecimal(f);
+    		 double f1 = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();  
+    		 return f1 + "年";
+    	 }
+     }
+     
+     // Constructors
 
     /** default constructor */
     public MainSuit() {

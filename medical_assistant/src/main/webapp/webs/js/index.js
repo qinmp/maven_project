@@ -1049,7 +1049,7 @@
                     },
                     {
                         name:"三亚市",
-                        districtAndCounty:[]
+                        districtAndCounty:["三亚市"]
                     },
                     {
                         name:"省直辖行政单位",

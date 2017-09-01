@@ -32,7 +32,8 @@ $('#saveBirthHistoryModel').click(function(){
 	        if(data.isSuccess ){  
 	            // view("修改成功！");  
 	            alert("保存成功！");  
-	            window.location.href='user/index.html';
+	            window.location.href='user/index.html#birthHistoryHead';
+	            window.location.reload();
 	        }else{  
 	        	alert(data.message);
 	        	if(data.position=="sessionOut"){
@@ -68,7 +69,8 @@ $('#deleteBirthHistoryModel').click(function(){
 		        if(data.isSuccess ){  
 		            // view("修改成功！");  
 		            alert("删除成功！");  
-		            window.location.href='user/index.html';
+		            window.location.href='user/index.html#birthHistoryHead';
+		            window.location.reload();
 		        }else{  
 		        	alert(data.message); 
 		        	if(data.position=="sessionOut"){

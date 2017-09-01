@@ -157,7 +157,7 @@
 					<dt>主诉:</dt>
 					<dt>
 						<div>
-							<label>${item.mainSuitContent}</label>于  <label><fmt:formatDate pattern="yyyy-MM-dd" value="${item.attackTime}"/></label> 发病.
+							<label>${item.mainSuitContentFacet}</label>&nbsp  <label>${item.timeFacet}</label> .
 						</div>
 					</dt>
 				</li>
@@ -201,7 +201,9 @@
 	</c:if>
 </div>
 <br>
-<h3  align="center">现病史</h3>
+<div id="presentIllnessHead">
+	<h3  align="center" >现病史</h3>
+</div>
 <br>
 
 <c:if test="${ empty presentIllnessModel }">
@@ -722,7 +724,9 @@
 	</c:if>
 </div>
 <br>
-<h3  align="center">自有上诉病况以来,以下情况怎么样</h3>
+<div id="otherSymptomHead">
+	<h3  align="center">自有上诉病况以来,以下情况怎么样</h3>
+</div>
 <br>
 	<c:if test="${ empty otherSymptomModel }">
 		<form method="post" id="otherSymptomForm">
@@ -837,7 +841,9 @@
 	</c:if>
 </div>
 <br>
-<h3  align="center">既往史</h3>
+<div id="pastHistoryHead">
+	<h3  align="center">既往史</h3>
+</div>
 <br>
 
 	<c:if test="${ empty pastHistoryModel }">	
@@ -1053,7 +1059,9 @@
 	</c:if>
 </div>
 <br>
-<h3  align="center">个人史</h3>
+<div id="personHistoryHead">
+	<h3  align="center">个人史</h3>
+</div>
 <br>
 
 	<c:if test="${ empty personHistoryModel }">
@@ -1176,7 +1184,9 @@
 	</c:if>
 </div>
 <br>
-<h3  align="center">婚姻史</h3>
+<div id="marryHistoryHead">
+	<h3  align="center">婚姻史</h3>
+</div>
 
 <br>
 	
@@ -1211,7 +1221,9 @@
 	</c:if>
 </div>
 <br>
-<h3  align="center">家族史</h3>
+<div id="familyHistoryHead">
+	<h3  align="center">家族史</h3>
+</div>
 
 <br>
 		<c:if test="${ empty familyHistoryModel }">
@@ -1281,7 +1293,9 @@
 <br>
 <c:if test="${ not empty basicInfo }">
 	<c:if test="${ basicInfo.sex == 1 }">
-		<h3  align="center">月经史</h3>
+		<div id="menstrualHistoryHead">
+			<h3  align="center">月经史</h3>
+		</div>
 		<br>
 			<c:if test="${ empty menstrualHistoryModel }">
 				<div class="probox">
@@ -1323,8 +1337,9 @@
 			</c:if>
 		</div>
 		<br>
-		<h3  align="center">生育史</h3>
-		
+		<div id="birthHistoryHead">
+			<h3  align="center">生育史</h3>
+		</div>
 		<br>
 			<c:if test="${ empty birthHistoryModel }">
 				<div class="probox">

@@ -551,7 +551,8 @@ $('#savePresentIllness').click(function(){
 	        if(data.isSuccess ){  
 	            // view("修改成功！");  
 	            alert("保存成功！");  
-	            window.location.href='user/index.html';
+	            window.location.href='user/index.html#presentIllnessHead';
+	            window.location.reload();
 	        }else{  
 	        	alert(data.message);
 	        	if(data.position=="sessionOut"){
@@ -566,6 +567,43 @@ $('#savePresentIllness').click(function(){
 	});
 	
 });
+
+//删除现状
+$('#deletePresentIllness').click(function(){
+	var serialNo1     = $('#serialNo').text();
+    if(!confirm("是否删除")){
+       return;
+    }
+	//1.$.ajax带json数据的异步请求
+	var aj = $.ajax( {  
+	    url:'user/deletePresentIllness.action',// 跳转到 action  
+	    data:{  
+	    	serialNo : serialNo1
+	    },  
+	    type:'post',  
+	    cache:false,  
+	    dataType:'json',
+	    success:function(data) {  
+	        if(data.isSuccess ){  
+	            // view("修改成功！");  
+	            alert("删除成功！");  
+	            window.location.href='user/index.html#presentIllnessHead';
+	            window.location.reload();
+	        }else{  
+	        	alert(data.message); 
+	        	if(data.position=="sessionOut"){
+	        		window.location.href='user/index.html';
+	        	}
+	        }  
+	     },  
+	     error : function() {  
+	          // view("异常！");  
+	          alert("异常！");  
+	     }  
+	});
+	
+});
+
 //消瘦BMI计算
 $('#marasmusWeightBMIBtn').click(function(){
 	//消瘦，当前体重

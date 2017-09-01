@@ -66,7 +66,8 @@ $('#saveOtherSymptom').click(function(){
 	    success:function(data) {  
 	        if(data.isSuccess ){  
 	            alert("保存成功！");  
-	            window.location.href='user/index.html';
+	            window.location.href='user/index.html#otherSymptomHead';
+	            window.location.reload();
 	        }else{  
 	        	alert(data.message);  
 	        	if(data.position=="sessionOut"){
@@ -101,7 +102,8 @@ $('#deleteOtherSymptom').click(function(){
 		        if(data.isSuccess ){  
 		            // view("修改成功！");  
 		            alert("删除成功！");  
-		            window.location.href='user/index.html';
+		            window.location.href='user/index.html#otherSymptomHead';
+		            window.location.reload();
 		        }else{  
 		        	alert(data.message);  
 		        	if(data.position=="sessionOut"){

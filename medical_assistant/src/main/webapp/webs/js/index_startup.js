@@ -11,9 +11,9 @@ $(document).ready(function(){
 		 var realBirthDay = new Pikaday({
 			field: jQuery('#realBirthDay')[0],
 			firstDay: 2,
-			minDate:	new Date('2000-01-01'), 
+			minDate:	new Date('1900-01-01'), 
 			maxDate:	new Date('2020-12-31'), 
-			yearRange:	[2000,2020],
+			yearRange:	[1900,2020],
 			i18n: 		i18n,
 			onSelect: 	function() {
 				var date = this.getDate(); //生成的时间格式化成 2013-09-25.Format('yyyy-MM-dd') + ' '//dd.getFullYear() + '-' + dd.getMonth() + '-' + dd.getDate()
@@ -26,9 +26,9 @@ $(document).ready(function(){
 		var diseaseTime = new Pikaday({
 			field: jQuery('#diseaseTime')[0],
 			firstDay: 2,
-			minDate:	new Date('2000-01-01'), 
+			minDate:	new Date('1900-01-01'), 
 			maxDate:	new Date('2020-12-31'), 
-			yearRange:	[2000,2020],
+			yearRange:	[1900,2020],
 			i18n: 		i18n,
 			onSelect: 	function() {
 				var date = this.getDate(); //生成的时间格式化成 2013-09-25.Format('yyyy-MM-dd') + ' '//dd.getFullYear() + '-' + dd.getMonth() + '-' + dd.getDate()
@@ -41,9 +41,9 @@ $(document).ready(function(){
 		var diseaseTime2 = new Pikaday({
 			field: jQuery('#diseaseTime2')[0],
 			firstDay: 2,
-			minDate:	new Date('2000-01-01'), 
+			minDate:	new Date('1900-01-01'), 
 			maxDate:	new Date('2020-12-31'), 
-			yearRange:	[2000,2020],
+			yearRange:	[1900,2020],
 			i18n: 		i18n,
 			onSelect: 	function() {
 				var date = this.getDate(); //生成的时间格式化成 2013-09-25.Format('yyyy-MM-dd') + ' '//dd.getFullYear() + '-' + dd.getMonth() + '-' + dd.getDate()
@@ -56,9 +56,9 @@ $(document).ready(function(){
 		var coughStartTime = new Pikaday({
 			field: jQuery('#coughStartTime')[0],
 			firstDay: 2,
-			minDate:	new Date('2000-01-01'), 
+			minDate:	new Date('1900-01-01'), 
 			maxDate:	new Date('2020-12-31'), 
-			yearRange:	[2000,2020],
+			yearRange:	[1900,2020],
 			i18n: 		i18n,
 			onSelect: 	function() {
 				var date = this.getDate(); //生成的时间格式化成 2013-09-25.Format('yyyy-MM-dd') + ' '//dd.getFullYear() + '-' + dd.getMonth() + '-' + dd.getDate()
@@ -71,9 +71,9 @@ $(document).ready(function(){
 		var diarrheaContinueTime = new Pikaday({
 			field: jQuery('#diarrheaContinueTime')[0],
 			firstDay: 2,
-			minDate:	new Date('2000-01-01'), 
+			minDate:	new Date('1900-01-01'), 
 			maxDate:	new Date('2020-12-31'), 
-			yearRange:	[2000,2020],
+			yearRange:	[1900,2020],
 			i18n: 		i18n,
 			onSelect: 	function() {
 				var date = this.getDate(); //生成的时间格式化成 2013-09-25.Format('yyyy-MM-dd') + ' '//dd.getFullYear() + '-' + dd.getMonth() + '-' + dd.getDate()
@@ -86,9 +86,9 @@ $(document).ready(function(){
 		var dizzyContinueTime = new Pikaday({
 			field: jQuery('#dizzyContinueTime')[0],
 			firstDay: 2,
-			minDate:	new Date('2000-01-01'), 
+			minDate:	new Date('1900-01-01'), 
 			maxDate:	new Date('2020-12-31'), 
-			yearRange:	[2000,2020],
+			yearRange:	[1900,2020],
 			i18n: 		i18n,
 			onSelect: 	function() {
 				var date = this.getDate(); //生成的时间格式化成 2013-09-25.Format('yyyy-MM-dd') + ' '//dd.getFullYear() + '-' + dd.getMonth() + '-' + dd.getDate()
@@ -101,9 +101,9 @@ $(document).ready(function(){
 		var painContinueTime = new Pikaday({
 			field: jQuery('#painContinueTime')[0],
 			firstDay: 2,
-			minDate:	new Date('2000-01-01'), 
+			minDate:	new Date('1900-01-01'), 
 			maxDate:	new Date('2020-12-31'), 
-			yearRange:	[2000,2020],
+			yearRange:	[1900,2020],
 			i18n: 		i18n,
 			onSelect: 	function() {
 				var date = this.getDate(); //生成的时间格式化成 2013-09-25.Format('yyyy-MM-dd') + ' '//dd.getFullYear() + '-' + dd.getMonth() + '-' + dd.getDate()
@@ -115,9 +115,9 @@ $(document).ready(function(){
 		var operationTime = new Pikaday({
 			field: jQuery('#operationTime')[0],
 			firstDay: 2,
-			minDate:	new Date('2000-01-01'), 
+			minDate:	new Date('1900-01-01'), 
 			maxDate:	new Date('2020-12-31'), 
-			yearRange:	[2000,2020],
+			yearRange:	[1900,2020],
 			i18n: 		i18n,
 			onSelect: 	function() {
 				var date = this.getDate(); //生成的时间格式化成 2013-09-25.Format('yyyy-MM-dd') + ' '//dd.getFullYear() + '-' + dd.getMonth() + '-' + dd.getDate()
@@ -129,9 +129,9 @@ $(document).ready(function(){
 		var transfusionTime = new Pikaday({
 			field: jQuery('#transfusionTime')[0],
 			firstDay: 2,
-			minDate:	new Date('2000-01-01'), 
+			minDate:	new Date('1900-01-01'), 
 			maxDate:	new Date('2020-12-31'), 
-			yearRange:	[2000,2020],
+			yearRange:	[1900,2020],
 			i18n: 		i18n,
 			onSelect: 	function() {
 				var date = this.getDate(); //生成的时间格式化成 2013-09-25.Format('yyyy-MM-dd') + ' '//dd.getFullYear() + '-' + dd.getMonth() + '-' + dd.getDate()
@@ -143,9 +143,9 @@ $(document).ready(function(){
 		var untreatedDiseaseTime = new Pikaday({
 			field: jQuery('#untreatedDiseaseTime')[0],
 			firstDay: 2,
-			minDate:	new Date('2000-01-01'), 
+			minDate:	new Date('1900-01-01'), 
 			maxDate:	new Date('2020-12-31'), 
-			yearRange:	[2000,2020],
+			yearRange:	[1900,2020],
 			i18n: 		i18n,
 			onSelect: 	function() {
 				var date = this.getDate(); //生成的时间格式化成 2013-09-25.Format('yyyy-MM-dd') + ' '//dd.getFullYear() + '-' + dd.getMonth() + '-' + dd.getDate()
@@ -157,9 +157,9 @@ $(document).ready(function(){
 		var drugsBeingUsedTime = new Pikaday({
 			field: jQuery('#drugsBeingUsedTime')[0],
 			firstDay: 2,
-			minDate:	new Date('2000-01-01'), 
+			minDate:	new Date('1900-01-01'), 
 			maxDate:	new Date('2020-12-31'), 
-			yearRange:	[2000,2020],
+			yearRange:	[1900,2020],
 			i18n: 		i18n,
 			onSelect: 	function() {
 				var date = this.getDate(); //生成的时间格式化成 2013-09-25.Format('yyyy-MM-dd') + ' '//dd.getFullYear() + '-' + dd.getMonth() + '-' + dd.getDate()
@@ -171,9 +171,9 @@ $(document).ready(function(){
 		var recentlyMenstrualDay = new Pikaday({
 			field: jQuery('#recentlyMenstrualDay')[0],
 			firstDay: 2,
-			minDate:	new Date('2000-01-01'), 
+			minDate:	new Date('1900-01-01'), 
 			maxDate:	new Date('2020-12-31'), 
-			yearRange:	[2000,2020],
+			yearRange:	[1900,2020],
 			i18n: 		i18n,
 			onSelect: 	function() {
 				var date = this.getDate(); //生成的时间格式化成 2013-09-25.Format('yyyy-MM-dd') + ' '//dd.getFullYear() + '-' + dd.getMonth() + '-' + dd.getDate()
