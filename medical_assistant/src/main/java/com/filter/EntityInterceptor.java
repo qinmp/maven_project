@@ -9,13 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.util.DateUtil;
 
-/**
- * @Description:
- * @Copyright: 深圳法大大网络科技有限公司 (c)2016
- * @Created Date : 2016-3-7
- * @author jcf
- * @vesion 2.0
- */
+
 @Component
 public class EntityInterceptor extends EmptyInterceptor {
 

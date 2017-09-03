@@ -1,9 +1,9 @@
 package com.util.vo;
 /**
  * @Description:系统有用到的全局变量
- * @Copyright: 深圳法大大网络科技有限公司 (c)2016
+ * @Copyright: 
  * @Created Date : 2016-3-21
- * @author jcf
+ * @author 
  * @vesion 2.0
  */
 public interface GlobalConstants {

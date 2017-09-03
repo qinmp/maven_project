@@ -8,9 +8,9 @@ import java.util.LinkedList;
 public class ServiceClassAndDaoClassFileGenUtil {
 	
 	private static String[] entityClassNameStrArray = new String[]{
-		"TAbnormalskin", "TAffectiveSymptoms","TAstriction","TBellyache", "TConsciousnessDisorder","TCough","TDiarrhea","TDizzy",
-		"TDyspnea","TEdema","TExpectoration","TFat","TFever","THaematemesis","THematochezia","THemoptysis","TMarasmus","TMicturition",
-		"TOliguresis","TOtherUpdSymptom","TPain","TPalpitation","TSelfDescription","TTicAndConvulsion","TVomit"
+		"Account", "Approval","ApprovalAttach","Contact", "ContactGroup","Contract","ContractAttach","ContractEsAccount",
+		"ContractExtinfo","ContractTarget","ContractTemplate","Letter","LetterTarget","LoginLog","Mail","MailBak","Msg","MsgBak",
+		"MsgTemplate","TempsignFile"
 	}; 
 	
 	private static String[] tempEntityClassNameArray = new String[]{
@@ -19,9 +19,17 @@ public class ServiceClassAndDaoClassFileGenUtil {
 	
 	private static String daoPackagePath = "package com.dao;";
 	
+	private static String baseDaoPackagePath = "import com.dao.BaseDao;";
+	
+	private static String baseDaoImplPackagePath = "import com.dao.impl.BaseDAOImpl;";
+	
 	private static String daoImplPackagePath = "package com.dao.impl;";
 	
-	private static String servicePackagePath = "package com.service;";
+	private static String servicePackagePath = "package com.fdd.service;";
+	
+	public static String baseServicePackagePath = "import com.service.BaseService;";
+	
+	public static String baseServiceImplPackagePath = "import com.service.impl.BaseServiceImpl;";
 	
 	private static String serviceImplPackagePath = "package com.service.impl;";
 	
@@ -31,9 +39,15 @@ public class ServiceClassAndDaoClassFileGenUtil {
 
 	private static String importInterfaceServicePrefixStr = "import com.service.";
 	
-	private static String genFilePath = "C://serviceClassAndDaoClassFileDirectory/";
+	private static String genDaoFilePath = "C://serviceClassAndDaoClassFileDirectory/dao/";
 	
-	private static String daoFirstLine = "public interface [daoInterfaceName] extends BaseDao<[entityName], Long> {";
+	private static String genDaoImplFilePath = "C://serviceClassAndDaoClassFileDirectory/daoimpl/";
+	
+	private static String genServiceFilePath = "C://serviceClassAndDaoClassFileDirectory/service/";
+	
+	private static String genServiceImplFilePath = "C://serviceClassAndDaoClassFileDirectory/serviceimpl/";
+	
+	private static String daoFirstLine = "public interface [daoInterfaceName] extends BaseDAO<[entityName], Long> {";
 	
 	private static String daoImplFirstLine = "public class [daoImplName] extends BaseDAOImpl<[entityName], Long>  implements [daoIntefaceName]  {";
 	
@@ -61,6 +75,7 @@ public class ServiceClassAndDaoClassFileGenUtil {
 		String firstLineStr = ServiceClassAndDaoClassFileGenUtil.daoFirstLine.replace("[daoInterfaceName]", daoIntefaceName);
 		firstLineStr = firstLineStr.replace("[entityName]", entityName);
 		list.add(ServiceClassAndDaoClassFileGenUtil.daoPackagePath);
+		list.add(ServiceClassAndDaoClassFileGenUtil.baseDaoPackagePath);
 		list.add(ServiceClassAndDaoClassFileGenUtil.importEntityPrefixStr + entityName + ";");
 		list.add(firstLineStr);
 		list.add(ServiceClassAndDaoClassFileGenUtil.secondLine);
@@ -80,6 +95,7 @@ public class ServiceClassAndDaoClassFileGenUtil {
 		String firstLineStr = ServiceClassAndDaoClassFileGenUtil.serviceFirstLine.replace("[serviceInterfaceName]", serviceIntefaceName);
 		firstLineStr = firstLineStr.replace("[entityName]", entityName);
 		list.add(ServiceClassAndDaoClassFileGenUtil.servicePackagePath);
+		list.add(ServiceClassAndDaoClassFileGenUtil.baseServicePackagePath);
 		list.add(ServiceClassAndDaoClassFileGenUtil.importEntityPrefixStr + entityName + ";");
 		list.add(firstLineStr);
 		list.add(ServiceClassAndDaoClassFileGenUtil.secondLine);
@@ -102,6 +118,7 @@ public class ServiceClassAndDaoClassFileGenUtil {
 			firstLineStr = firstLineStr.replace("[entityName]", entityName);
 			firstLineStr = firstLineStr.replace("[serviceInterfaceName]", serviceInterfaceName);
 			list.add(ServiceClassAndDaoClassFileGenUtil.serviceImplPackagePath);
+			list.add(ServiceClassAndDaoClassFileGenUtil.baseServiceImplPackagePath);
 			list.add(ServiceClassAndDaoClassFileGenUtil.annotationLibServiceImportStr);
 			list.add(ServiceClassAndDaoClassFileGenUtil.annotationLibResourceImportStr);
 			list.add(ServiceClassAndDaoClassFileGenUtil.importInterfaceServicePrefixStr + serviceInterfaceName + ";");
@@ -138,6 +155,7 @@ public class ServiceClassAndDaoClassFileGenUtil {
 		firstLineStr = firstLineStr.replace("[entityName]", entityName);
 		firstLineStr = firstLineStr.replace("[daoIntefaceName]", daoInterfaceName);
 		list.add(ServiceClassAndDaoClassFileGenUtil.daoImplPackagePath);
+		list.add(ServiceClassAndDaoClassFileGenUtil.baseDaoImplPackagePath);
 		list.add(ServiceClassAndDaoClassFileGenUtil.annotationLibImportStr);
 		
 		list.add(ServiceClassAndDaoClassFileGenUtil.importInterfaceDAOPrefixStr + daoInterfaceName + ";");
@@ -154,9 +172,34 @@ public class ServiceClassAndDaoClassFileGenUtil {
 		out.close();
 	}
 	
-	public static File getEmptyJavaFileByName(String fileName, String extension) throws IOException{
-		final String filePath = genFilePath + fileName + extension;
-		File file = new File(filePath);
+	public static File getEmptyJavaFileByName(String fileType, String fileName, String extension) throws IOException{
+		String genFilePath = "";
+		if("dao".equals(fileType)){
+			File daoFoder = new File(genDaoFilePath);
+			if(!daoFoder.exists()){
+				daoFoder.mkdirs();
+			}
+			genFilePath = genDaoFilePath + fileName + extension;
+		} else if("daoimpl".equals(fileType)){
+			File daoFoder = new File(genDaoImplFilePath);
+			if(!daoFoder.exists()){
+				daoFoder.mkdirs();
+			}
+			genFilePath = genDaoImplFilePath + fileName + extension;
+		} else if("service".equals(fileType)){
+			File daoFoder = new File(genServiceFilePath);
+			if(!daoFoder.exists()){
+				daoFoder.mkdirs();
+			}
+			genFilePath = genServiceFilePath + fileName + extension;
+		} else if("serviceimpl".equals(fileType)){
+			File daoFoder = new File(genServiceImplFilePath);
+			if(!daoFoder.exists()){
+				daoFoder.mkdirs();
+			}
+			genFilePath = genServiceImplFilePath + fileName + extension;
+		}
+		File file = new File(genFilePath);
 		if(!file.exists()){
 			file.createNewFile();
 		}
@@ -165,16 +208,15 @@ public class ServiceClassAndDaoClassFileGenUtil {
 	
 	public static void main(String[] args){
 		try {
-			for (int i = 0; i < tempEntityClassNameArray.length; i++) {
-				File file = getEmptyJavaFileByName(tempEntityClassNameArray[i] + "DAOImpl", ".java");
-				File file2 = getEmptyJavaFileByName(tempEntityClassNameArray[i] + "DAO", ".java");
-				fillDaoImplFile(file, tempEntityClassNameArray[i]);
-				fillDaoFile(file2, tempEntityClassNameArray[i]);
-				File file3 = getEmptyJavaFileByName(tempEntityClassNameArray[i] + "ServiceImpl", ".java");
-				fillServiceImplFile(file3, tempEntityClassNameArray[i]);
-				
-				File file4 = getEmptyJavaFileByName(tempEntityClassNameArray[i] + "Service", ".java");
-				fillServiceFile(file4, tempEntityClassNameArray[i]);
+			for (int i = 0; i < entityClassNameStrArray.length; i++) {
+				File file = getEmptyJavaFileByName("daoimpl" ,entityClassNameStrArray[i] + "DAOImpl", ".java");
+				File file2 = getEmptyJavaFileByName("dao" ,entityClassNameStrArray[i] + "DAO", ".java");
+				fillDaoImplFile(file, entityClassNameStrArray[i]);
+				fillDaoFile(file2, entityClassNameStrArray[i]);
+				File file3 = getEmptyJavaFileByName("serviceimpl" ,entityClassNameStrArray[i] + "ServiceImpl", ".java");
+				File file4 = getEmptyJavaFileByName("service" ,entityClassNameStrArray[i] + "Service", ".java");
+				fillServiceImplFile(file3, entityClassNameStrArray[i]);
+				fillServiceFile(file4, entityClassNameStrArray[i]);
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

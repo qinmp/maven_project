@@ -13,7 +13,7 @@ import org.apache.commons.lang.StringUtils;
  * @Description:日期处理函数
  * @Copyright: 深圳法大大网络科技有限公司 (c)2016
  * @Created Date : 2016-3-16
- * @author jcf
+ * @author “”
  * @vesion 2.0
  */
 public class DateUtil {
@@ -23,7 +23,7 @@ public class DateUtil {
 	/**
 	 * @Description: 计算两日期相差的天数
 	 * @Create: 2012-12-21 下午3:45:44
-	 * @author jcf
+	 * @author “”
 	 * @update logs
 	 * @param fDate
 	 * @param oDate
@@ -38,7 +38,7 @@ public class DateUtil {
 	/**
 	 * @Description: 计算两日期相差的分钟数
 	 * @Create: 2014-9-28 下午10:39:33
-	 * @author jcf
+	 * @author “”
 	 * @update logs
 	 * @param fDate
 	 * @param oDate
@@ -53,7 +53,7 @@ public class DateUtil {
 	/**
 	 * @Description: 按pattern格式化输出Date
 	 * @Create: 2012-12-21 下午3:53:48
-	 * @author jcf
+	 * @author “”
 	 * @update logs
 	 * @param date
 	 * @param pattern
@@ -67,7 +67,7 @@ public class DateUtil {
 	/**
 	 * @Description: 日期按yyyy-MM-dd格式化
 	 * @Create: 2012-12-21 下午3:55:39
-	 * @author jcf
+	 * @author “”
 	 * @update logs
 	 * @param date
 	 * @return
@@ -79,7 +79,7 @@ public class DateUtil {
 	/**
 	 * @Description: 将类型是pattern的日期字符串转化成Date型数据
 	 * @Create: 2013-1-14 下午11:58:24
-	 * @author jcf
+	 * @author “”
 	 * @update logs
 	 * @param pattern
 	 * @param dateString
@@ -100,7 +100,7 @@ public class DateUtil {
 	/**
 	 * @Description:将类型是yyyy-MM-dd的日期字符串转化成Date型数据
 	 * @Create: 2013-1-14 下午11:59:34
-	 * @author jcf
+	 * @author “”
 	 * @update logs
 	 * @param dateString
 	 * @return
@@ -113,7 +113,7 @@ public class DateUtil {
 	/**
 	 * @Description:将类型是yyyy-MM-dd的日期字符串转化成java.sql.Date型数据
 	 * @Create: 2013-1-14 下午11:59:34
-	 * @author jcf
+	 * @author “”
 	 * @update logs
 	 * @param dateString
 	 * @return
@@ -126,7 +126,7 @@ public class DateUtil {
 	/**
 	 * @Description:将类型是pattern的日期字符串转化成java.sql.Date型数据
 	 * @Create: 2013-1-14 下午11:59:34
-	 * @author jcf
+	 * @author “”
 	 * @update logs
 	 * @param dateString
 	 * @return
@@ -141,7 +141,7 @@ public class DateUtil {
 	/**
 	 * @Description: 取得当前时间的Timestamp
 	 * @Created Time: 2013-4-16 下午4:40:59
-	 * @Author jcf
+	 * @Author “”
 	 * @return
 	 */
 	public static Timestamp getNowTimestamp() {
@@ -153,7 +153,7 @@ public class DateUtil {
 	 *               .000、.003、或 .007 秒的增量
 	 *               http://www.fengfly.com/plus/view-172343-1.html
 	 * @Created Time: 2013-4-16 下午4:40:59
-	 * @Author jcf
+	 * @Author “”
 	 * @return
 	 */
 	public static Timestamp getNowTimestampSqlServer() {
@@ -172,7 +172,7 @@ public class DateUtil {
 	 *               .000、.003、或 .007 秒的增量
 	 *               http://www.fengfly.com/plus/view-172343-1.html
 	 * @Created Time: 2013-4-16 下午4:40:59
-	 * @Author jcf
+	 * @Author “”
 	 * @return
 	 */
 	public static String getNowTimestampSqlServerStr() {
@@ -184,7 +184,7 @@ public class DateUtil {
 	/**
 	 * @Description: 计算n小时后的时间
 	 * @Create: 2014-1-22 下午03:07:56
-	 * @author jcf
+	 * @author “”
 	 * @update logs
 	 * @param n
 	 * @return
@@ -205,7 +205,7 @@ public class DateUtil {
 	/**
 	 * @Description: 取得当前时间的Date
 	 * @Created: 2013-8-18 下午5:46:52
-	 * @Author jcf
+	 * @Author “”
 	 * @return
 	 */
 	public static Date getNowDate() {
@@ -215,7 +215,7 @@ public class DateUtil {
 	/**
 	 * @Description: 取得当前时间的SqlDate
 	 * @Created: 2013-8-18 下午5:46:52
-	 * @Author jcf
+	 * @Author “”
 	 * @return
 	 */
 	public static java.sql.Date getNowSqlDate() {
@@ -225,7 +225,7 @@ public class DateUtil {
 	/**
 	 * @Description: 日期加一天
 	 * @Create: 2013-10-9 下午02:22:25
-	 * @author jcf
+	 * @author “”
 	 * @update logs
 	 * @param s
 	 * @param n
