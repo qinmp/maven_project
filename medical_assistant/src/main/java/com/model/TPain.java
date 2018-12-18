@@ -24,7 +24,7 @@ import com.util.DateUtil;
  * TPain entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_pain", catalog = "medical_assistant_db")
+@Table(name = "t_pain")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TPain  extends BaseModel {
 

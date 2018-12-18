@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -15,7 +16,7 @@ import com.exception.MyException;
 import com.util.string.StringEscapeEditor;
 
 public class BaseController {
-
+	private static final Logger logger = Logger.getLogger(BaseController.class);
 	protected String getStringSession(HttpServletRequest request, String name) {
 		Object obj = getSession(request).getAttribute(name);
 		return obj == null ? null : obj.toString();
@@ -41,8 +42,10 @@ public class BaseController {
 		request.setAttribute("ex", ex);
 		// 根据不同错误转向不同页面
 		if (ex instanceof MyException) {
+			logger.error(ex.getMessage());
 			return "/myException";
 		} else {
+			logger.error(ex.getMessage());
 			return "/error";
 		}
 	}

@@ -15,7 +15,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
-@Table(name = "t_allergic_history", catalog = "medical_assistant_db")
+@Table(name = "t_allergic_history")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TAllergicHistory  extends BaseModel  {
 

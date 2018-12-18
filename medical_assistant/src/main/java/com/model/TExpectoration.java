@@ -18,7 +18,7 @@ import com.bean.enumobj.ExpectorationEnum;
  * TExpectoration entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_expectoration", catalog = "medical_assistant_db")
+@Table(name = "t_expectoration")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TExpectoration  extends BaseModel {
 

@@ -23,9 +23,7 @@ import com.util.DateUtil;
  * BasicInfo entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name="t_main_suit"
-    ,catalog="medical_assistant_db"
-)
+@Table(name="t_main_suit")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class MainSuit extends BaseModel  {
 

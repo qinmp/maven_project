@@ -15,7 +15,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * TEdema entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_edema", catalog = "medical_assistant_db")
+@Table(name = "t_edema")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TEdema  extends BaseModel {
 

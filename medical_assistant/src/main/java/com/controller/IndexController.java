@@ -15,7 +15,6 @@ import com.service.BasicInfoService;
 import com.util.session.SessionUtil;
 
 @Controller("indexController")
-@Scope("prototype")
 @RequestMapping(value = "/user/")
 public class IndexController extends BaseController {
 	

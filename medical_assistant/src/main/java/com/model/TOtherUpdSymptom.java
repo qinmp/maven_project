@@ -18,7 +18,7 @@ import com.bean.enumobj.OtherUDPSymtomTypeEnum;
  * TOtherUpdSymptom entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_other_upd_symptom", catalog = "medical_assistant_db")
+@Table(name = "t_other_upd_symptom")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TOtherUpdSymptom  extends BaseModel {
 

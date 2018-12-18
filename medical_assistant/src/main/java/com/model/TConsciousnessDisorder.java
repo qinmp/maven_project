@@ -15,7 +15,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * TConsciousnessDisorder entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_consciousness_disorder", catalog = "medical_assistant_db")
+@Table(name = "t_consciousness_disorder")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TConsciousnessDisorder  extends BaseModel {
 

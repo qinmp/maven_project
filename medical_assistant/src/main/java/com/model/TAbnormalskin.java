@@ -19,7 +19,7 @@ import com.bean.enumobj.LimbsTrunkAbnormalSkinEnum;
  * TAbnormalskin entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_abnormalskin", catalog = "medical_assistant_db")
+@Table(name = "t_abnormalskin")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TAbnormalskin extends BaseModel {
 

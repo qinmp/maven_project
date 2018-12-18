@@ -18,7 +18,7 @@ import com.service.BaseService;
 public class BaseServiceImpl<T, PK extends Serializable> implements BaseService<T, PK> {
 
 	protected BaseDao<T, PK> baseDAO;
-	
+
 	@Resource
 	private BasicInfoDao basicInfoDao;
 	@Resource

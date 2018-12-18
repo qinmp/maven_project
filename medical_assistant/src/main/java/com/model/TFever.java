@@ -15,7 +15,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * TFever entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_fever", catalog = "medical_assistant_db")
+@Table(name = "t_fever")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TFever  extends BaseModel {
 

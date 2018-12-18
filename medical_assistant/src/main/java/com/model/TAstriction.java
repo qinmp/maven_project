@@ -19,7 +19,7 @@ import com.bean.enumobj.AstrictionTypeEnum;
  * TAstriction entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_astriction", catalog = "medical_assistant_db")
+@Table(name = "t_astriction")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TAstriction  extends BaseModel {
 

@@ -18,7 +18,7 @@ import com.bean.enumobj.HematocheziaColorEnum;
  * THematochezia entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_hematochezia", catalog = "medical_assistant_db")
+@Table(name = "t_hematochezia")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class THematochezia  extends BaseModel {
 

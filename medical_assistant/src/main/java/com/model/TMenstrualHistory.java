@@ -17,7 +17,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import com.util.DateUtil;
 
 @Entity
-@Table(name = "t_menstrual_history", catalog = "medical_assistant_db")
+@Table(name = "t_menstrual_history")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TMenstrualHistory  extends BaseModel  {
 	private static final long serialVersionUID = -6773945432898884853L;

@@ -18,7 +18,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  */
 @Entity
 @Table(name="t_basic_info"
-    ,catalog="medical_assistant_db"
 )
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class BasicInfo implements java.io.Serializable {

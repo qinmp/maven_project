@@ -18,7 +18,7 @@ import com.bean.enumobj.MicturitionRelatedSymptomsTypeEnum;
  * TMicturition entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_micturition", catalog = "medical_assistant_db")
+@Table(name = "t_micturition")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TMicturition  extends BaseModel {
 

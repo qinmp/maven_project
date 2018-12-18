@@ -15,7 +15,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * TSelfDescription entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_self_description", catalog = "medical_assistant_db")
+@Table(name = "t_self_description")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TSelfDescription  extends BaseModel {
 

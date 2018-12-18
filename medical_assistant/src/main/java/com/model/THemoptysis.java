@@ -15,7 +15,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * THemoptysis entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_hemoptysis", catalog = "medical_assistant_db")
+@Table(name = "t_hemoptysis")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class THemoptysis  extends BaseModel {
 

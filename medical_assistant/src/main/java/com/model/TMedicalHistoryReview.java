@@ -18,7 +18,7 @@ import com.util.DateUtil;
 
 //病史回顾
 @Entity
-@Table(name = "t_medical_history_review", catalog = "medical_assistant_db")
+@Table(name = "t_medical_history_review")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TMedicalHistoryReview  extends BaseModel  {
 	private static final long serialVersionUID = 8914942461113140173L;

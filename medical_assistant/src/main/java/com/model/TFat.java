@@ -16,7 +16,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * TFat entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_fat", catalog = "medical_assistant_db")
+@Table(name = "t_fat")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TFat  extends BaseModel {
 

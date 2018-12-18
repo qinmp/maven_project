@@ -20,7 +20,7 @@ import com.bean.enumobj.VomitEnum;
  * TVomit entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_vomit", catalog = "medical_assistant_db")
+@Table(name = "t_vomit")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TVomit  extends BaseModel {
 

@@ -18,7 +18,7 @@ import com.bean.enumobj.DizzyTypeEnum;
  * TDizzy entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_dizzy", catalog = "medical_assistant_db")
+@Table(name = "t_dizzy")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TDizzy  extends BaseModel {
 

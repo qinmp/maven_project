@@ -15,7 +15,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * TBellyache entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_bellyache", catalog = "medical_assistant_db")
+@Table(name = "t_bellyache")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TBellyache  extends BaseModel {
 

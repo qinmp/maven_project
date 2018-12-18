@@ -20,7 +20,7 @@ import com.util.DateUtil;
  * TCough entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_cough", catalog = "medical_assistant_db")
+@Table(name = "t_cough")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TCough  extends BaseModel {
 

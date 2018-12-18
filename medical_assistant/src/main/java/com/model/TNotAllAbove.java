@@ -15,7 +15,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * TPalpitation entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_not_all_above", catalog = "medical_assistant_db")
+@Table(name = "t_not_all_above")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TNotAllAbove  extends BaseModel {
 

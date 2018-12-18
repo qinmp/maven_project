@@ -36,7 +36,7 @@ public class TestController {
 	@RequestMapping(value = "/index.html", method = RequestMethod.GET)
 	public String basicIndex(HttpServletRequest request, ModelMap modelMap) {
 		
-		return "/WEB-INF/index";
+		return "/WEB-INF/web-socket-test";
 	}
 	
 	@RequestMapping(value = "/test3.action", method = RequestMethod.GET)

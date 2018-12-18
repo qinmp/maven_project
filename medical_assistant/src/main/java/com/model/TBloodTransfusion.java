@@ -17,7 +17,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import com.util.DateUtil;
 
 @Entity
-@Table(name = "t_blood_transfusion", catalog = "medical_assistant_db")
+@Table(name = "t_blood_transfusion")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE) 
 public class TBloodTransfusion  extends BaseModel  {
 	private static final long serialVersionUID = 2414649277486843711L;
