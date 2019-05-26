@@ -15,16 +15,16 @@ import org.apache.commons.lang.StringUtils;
 
 public class TextLineDeal2 {
 	
-	static String personFilePath = "C:\\Users\\qinmp\\Desktop\\wordfile_20181213_4\\name-txt\\";
+	static String personFilePath = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\txt\\name-txt\\";
 	
 	public static void main(String[] args) {
-		File dealfolder = new File("C:\\Users\\qinmp\\Desktop\\wordfile_20181213_4\\txt\\");
+		File dealfolder = new File("C:\\Users\\qinmp\\Desktop\\需求-整合201905\\txt\\");
 		File[] filelist = dealfolder.listFiles();
 		try {
 			for(File tempFile:filelist){
 				if(tempFile.getName().contains("better")){
 					String txtFolderName = tempFile.getName().substring(0, tempFile.getName().lastIndexOf("-"));
-					File txtFolderFile = new File(personFilePath + txtFolderName + "\\");
+					File txtFolderFile = new File(personFilePath + txtFolderName.trim() + "\\");
 					txtFolderFile.mkdirs();
 					String tempFolderPath = txtFolderFile.getAbsolutePath() + "\\";
 					

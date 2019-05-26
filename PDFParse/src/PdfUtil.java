@@ -20,7 +20,7 @@ public static ExecutorService executorService = null;
 	public static String charaterStr[] = {"%", "kcal/d", "kg", "kg/wk", "kg/m²" ,
 			 "cm", "岁"};
 	
-	public static void getTextFromPDF() 
+	public static void getTextFromPDF()
 	{
 		String pdfPath = "C:\\Users\\qinmp\\Desktop\\大卡体重数据\\产检大卡2\\";
 		String txtFilePath = "C:\\Users\\qinmp\\Desktop\\大卡体重数据\\产检大卡2-txt\\";

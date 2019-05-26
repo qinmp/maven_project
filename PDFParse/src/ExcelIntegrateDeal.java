@@ -13,15 +13,15 @@ import org.apache.poi.ss.usermodel.Row;
 import excel.ExportExcel;
 import excel.ImportExcel;
 
-public class ExcelIntegrateDeal {
+public class ExcelIntegrateDeal { 
 	
-	public static String excel1Path = "C:\\Users\\qinmp\\Desktop\\需求-整合20181212\\需求-整合\\1.检验信息.xlsx";
-	public static String excel2Path = "C:\\Users\\qinmp\\Desktop\\需求-整合20181212\\需求-整合\\2.体成分.xlsx";
-	public static String excel3Path = "C:\\Users\\qinmp\\Desktop\\需求-整合20181212\\需求-整合\\3.产科数据.xlsx";
-	public static String excel4Path = "C:\\Users\\qinmp\\Desktop\\需求-整合20181212\\需求-整合\\4.1产检大卡1.xlsx";
-	public static String excel5Path = "C:\\Users\\qinmp\\Desktop\\需求-整合20181212\\需求-整合\\4.2产检大卡1-2.xlsx";
-	public static String sumExcelPath1 = "C:\\Users\\qinmp\\Desktop\\需求-整合20181212\\需求-整合\\sumExcel1.xlsx";
-	public static String sumExcelPath2 = "C:\\Users\\qinmp\\Desktop\\需求-整合20181212\\需求-整合\\sumExcel2.xlsx";
+	public static String excel1Path = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\1.检验信息.xlsx";
+	public static String excel2Path = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\2.体成分.xlsx";
+	public static String excel3Path = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\3.产科数据.xlsx";
+	public static String excel4Path = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\4.1产检大卡1.xlsx";
+	public static String excel5Path = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\4.2产检大卡1-2.xlsx";
+	public static String sumExcelPath1 = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\sumExcel1.xlsx";
+	public static String sumExcelPath2 = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\sumExcel2.xlsx";
 	
 	public static void main(String[] args) {
 		

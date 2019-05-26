@@ -11,7 +11,7 @@ import excel.ExportExcel;
 
 public class ExcelUtil3 {
 	
-	public static String sumExcelPath = "C:\\Users\\qinmp\\Desktop\\wordfile_20181213_4\\excel\\检验信息收集.xlsx";
+	public static String sumExcelPath = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\1.检验信息.xlsx";
 	public List<Map<String, Object>> getDefaultTable() {
 		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		String[] headers = { "姓名", "年龄", "建卡时空腹总胆固醇(TC)（mmol/L）", "建卡时甘油三脂(TG)（mmol/L）", "建卡时高密度脂蛋白胆固醇(HDL-C)（mmol/L）", "建卡时低密度脂蛋白胆固醇(LDL-C)（mmol/L）"

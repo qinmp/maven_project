@@ -10,7 +10,7 @@ import java.nio.channels.FileChannel;
 import org.apache.commons.lang.StringUtils;
 
 public class Rename {
-    public void reName(File dealFile){
+    public void reName(File dealFile, String destPath){
     	try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(dealFile)));
 			String lineTxt = null;
@@ -27,7 +27,7 @@ public class Rename {
 				}
 				reader.close();
 				if(StringUtils.isNotBlank(num)){
-					File tempFile = new File("C:\\Users\\qinmp\\Desktop\\pdffile3\\txt3\\" + num + ".txt");
+					File tempFile = new File(destPath + num + ".txt");
 					if(!tempFile.exists()){
 						tempFile.createNewFile();
 					}
@@ -43,7 +43,8 @@ public class Rename {
 		}
     }
     
-    private void copyFileUsingFileChannels(File source, File dest)
+    @SuppressWarnings("resource")
+	private void copyFileUsingFileChannels(File source, File dest)
 			throws IOException {
 		FileChannel inputChannel = null;
 		FileChannel outputChannel = null;
@@ -66,7 +67,7 @@ public class Rename {
 				for(int i=0; i < files.length; i++){
 					File file = files[i];
 					System.out.println("current rename file is: " + file.getName());
-					rename.reName(file);
+					rename.reName(file, "C:\\Users\\qinmp\\Desktop\\pdffile3\\txt3\\");
 				}
 			}
 		}

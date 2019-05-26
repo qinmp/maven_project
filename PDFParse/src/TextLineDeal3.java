@@ -13,7 +13,7 @@ import org.apache.commons.lang.StringUtils;
 
 public class TextLineDeal3 {
 	
-	static String personFilePath = "C:\\Users\\qinmp\\Desktop\\wordfile_20181213_4\\name-txt\\";
+	static String personFilePath = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\txt\\name-txt\\";
 	static String tc          					= "总胆固醇";
 	static String tg          					= "甘油三脂";
 	static String hdl_c       					= "高密度脂蛋白";
@@ -21,6 +21,8 @@ public class TextLineDeal3 {
 	static String blood_sugar      				= "血糖";
 	static String after_60_min_blood_sugar 		= "餐后血糖60分钟";
 	static String after_120_min_blood_sugar 	= "餐后血糖120分钟";
+	static String after_60_min_blood_sugar2 	= "血糖测定60分钟";
+	static String after_120_min_blood_sugar2 	= "血糖测定120钟";
 	static String glycosylated_hemoglobin  		= "糖化血红蛋白";
 	static String ifcc_glycosylated_hemoglobin 	= "糖化血红蛋白(IFCC)";
 	static String glycated_albumin 				= "糖化血清白蛋白";
@@ -99,7 +101,7 @@ public class TextLineDeal3 {
 				} else if(lineTxt.contains("诊断") || lineTxt.contains("体重")){//诊断, 体重
 					if(lineTxt.contains("诊断") && lineTxt.contains("体重") && !lineTxt.contains("出生体重") && !lineTxt.contains("低体重儿")){
 						if(StringUtils.isBlank(excelMapDTO.getWeight())){
-							String tg1 = getWeight(lineTxt);
+							String tg1 = getWeight(lineTxt, excelMapDTO);
 							excelMapDTO.setWeight(tg1.trim());
 						}
 						if(StringUtils.isBlank(excelMapDTO.getPostpartum_diagnosis())){
@@ -113,7 +115,7 @@ public class TextLineDeal3 {
 						}
 					}else if(lineTxt.contains("体重") && !lineTxt.contains("出生体重") && !lineTxt.contains("低体重儿")){
 						if(StringUtils.isBlank(excelMapDTO.getWeight())){
-							tmpvar = getWeight(lineTxt);
+							tmpvar = getWeight(lineTxt, excelMapDTO);
 							excelMapDTO.setWeight(tmpvar);
 						}
 					}else{
@@ -213,14 +215,16 @@ public class TextLineDeal3 {
 							excelMapDTO.setBlood_sugar(tmpvar);
 						}
 					}
-				} else if(lineTxt.contains(after_60_min_blood_sugar) ){//餐后血糖60分钟
+				} else if(lineTxt.contains(after_60_min_blood_sugar) || lineTxt.contains(after_60_min_blood_sugar2) ){//餐后血糖60分钟, 血糖测定60分钟
 					countMap.put(after_60_min_blood_sugar, 1);
+					countMap.put(after_60_min_blood_sugar2, 1);
 					if(StringUtils.isBlank(excelMapDTO.getAfter_60_min_blood_sugar())){
 						tmpvar = getAfter_60_min_blood_sugar(lineTxt);
 						excelMapDTO.setAfter_60_min_blood_sugar(tmpvar);
 					}
-				} else if(lineTxt.contains(after_120_min_blood_sugar) ){//餐后血糖120分钟
+				} else if(lineTxt.contains(after_120_min_blood_sugar) || lineTxt.contains(after_120_min_blood_sugar2)  ){//餐后血糖120分钟, 血糖测定120钟
 					countMap.put(after_120_min_blood_sugar, 1);
+					countMap.put(after_120_min_blood_sugar2, 1);
 					if(StringUtils.isBlank(excelMapDTO.getAfter_120_min_blood_sugar())){
 						tmpvar = getAfter_120_min_blood_sugar(lineTxt);
 						excelMapDTO.setAfter_120_min_blood_sugar(tmpvar);
@@ -307,11 +311,17 @@ public class TextLineDeal3 {
 		return "";
 	}
 
-	private static String getWeight(String lineTxt) {
+	private static String getWeight(String lineTxt, ExcelMapDTO excelMapDTO) {
 		try {
-			String tg1 = lineTxt.substring(lineTxt.indexOf("体重") + 2, lineTxt.indexOf("g"));
+			String tg1;
+			if(lineTxt.contains("体重：")){
+				tg1 = lineTxt.substring(lineTxt.indexOf("体重") + 3, lineTxt.indexOf("g"));
+			}else{
+				tg1 = lineTxt.substring(lineTxt.indexOf("体重") + 2, lineTxt.indexOf("g"));
+			}
 			return tg1.trim();
 		} catch (Exception e) {
+			System.out.println("name: " + excelMapDTO.getName() + " get wight occur error");
 			e.printStackTrace();
 		}
 		return null;
@@ -344,7 +354,13 @@ public class TextLineDeal3 {
 
 	private static String getAfter_120_min_blood_sugar(String lineTxt) {
 		try {
-			String tg1 = lineTxt.substring(lineTxt.indexOf(after_120_min_blood_sugar) + after_120_min_blood_sugar.length(), lineTxt.indexOf("～")-4);
+			
+			String tg1 = "";;
+			if(lineTxt.contains(after_120_min_blood_sugar)){
+				tg1 = lineTxt.substring(lineTxt.indexOf(after_120_min_blood_sugar) + after_120_min_blood_sugar.length(), lineTxt.indexOf("～")-4);
+			}else if(lineTxt.contains(after_120_min_blood_sugar2)){
+				tg1 = lineTxt.substring(lineTxt.indexOf(after_120_min_blood_sugar2) + after_120_min_blood_sugar2.length(), lineTxt.indexOf("～")-4);
+			}
 			return tg1.trim();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -354,7 +370,12 @@ public class TextLineDeal3 {
 
 	private static String getAfter_60_min_blood_sugar(String lineTxt) {
 		try {
-			String tg1 = lineTxt.substring(lineTxt.indexOf(after_60_min_blood_sugar) + after_60_min_blood_sugar.length(), lineTxt.indexOf("～")-4);
+			String tg1 = "";;
+			if(lineTxt.contains(after_60_min_blood_sugar)){
+				tg1 = lineTxt.substring(lineTxt.indexOf(after_60_min_blood_sugar) + after_60_min_blood_sugar.length(), lineTxt.indexOf("～")-4);
+			}else if(lineTxt.contains(after_60_min_blood_sugar2)){
+				tg1 = lineTxt.substring(lineTxt.indexOf(after_60_min_blood_sugar2) + after_60_min_blood_sugar2.length(), lineTxt.indexOf("～")-4);
+			}
 			return tg1.trim();
 		} catch (Exception e) {
 			e.printStackTrace();

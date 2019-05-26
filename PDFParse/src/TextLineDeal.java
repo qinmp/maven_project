@@ -14,7 +14,7 @@ public class TextLineDeal {
 
 	
 	public static void main(String[] args) {
-		String folderpath = "C:\\Users\\qinmp\\Desktop\\wordfile_20181213_4\\txt\\";
+		String folderpath = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\txt\\";
 		
 		File dealFolder = new File(folderpath);
 		File[] filelist = dealFolder.listFiles();
@@ -101,7 +101,11 @@ public class TextLineDeal {
 			isYes = true;
 		} else if(lineTxt.contains("餐后血糖60分钟")){
 			isYes = true;
-		}else if(lineTxt.contains("住院号")){
+		} else if(lineTxt.contains("血糖测定60钟")){
+			isYes = true;
+		} else if(lineTxt.contains("血糖测定120钟")){
+			isYes = true;
+		} else if(lineTxt.contains("住院号")){
 			isYes = true;
 		} else if(lineTxt.contains("联系方式")){
 			isYes = true;
@@ -110,6 +114,8 @@ public class TextLineDeal {
 		} else if(lineTxt.contains("生儿")){
 			isYes = true;
 		} else if(lineTxt.contains("诊断") && !lineTxt.contains("临床诊断")){
+			isYes = true;
+		} else if(lineTxt.contains("胎儿性别") && lineTxt.contains("体重")){
 			isYes = true;
 		} else if(lineTxt.contains("临床诊断")) {
 			isYes = false;
