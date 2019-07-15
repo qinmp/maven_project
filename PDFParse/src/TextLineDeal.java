@@ -14,7 +14,7 @@ public class TextLineDeal {
 
 	
 	public static void main(String[] args) {
-		String folderpath = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\txt\\";
+		String folderpath = "C:\\Users\\qinmp\\Desktop\\txt\\";
 		
 		File dealFolder = new File(folderpath);
 		File[] filelist = dealFolder.listFiles();
