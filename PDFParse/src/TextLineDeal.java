@@ -49,7 +49,15 @@ public class TextLineDeal {
 									continue;
 								}
 								Liner liner = new Liner();
-								liner.setValue(lineTxt.replaceAll(" ", ""));
+								String tempStr = "";
+								if(lineTxt.contains("?")){
+									tempStr = lineTxt.replaceAll("\\?", "");
+								}else{
+									tempStr = lineTxt;
+								}
+								tempStr = tempStr.replaceAll(" ", "");
+//								tempStr = tempStr.replaceAll("	", "");
+								liner.setValue(tempStr);
 								liners.add(liner);
 							}
 						}

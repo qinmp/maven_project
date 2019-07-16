@@ -37,8 +37,8 @@ public class TxtFilter {
 
 	public  static void main(String[] args)
 	{
-		TxtFilter.txtFileFilter("C:\\Users\\qinmp\\Desktop\\pdffile4\\txt\\",
-				"C:\\Users\\qinmp\\Desktop\\pdffile4\\txt2\\");
+		TxtFilter.txtFileFilter("C:\\Users\\qinmp\\Desktop\\体成分数据-提取201907\\201907-txt\\",
+				"C:\\Users\\qinmp\\Desktop\\体成分数据-提取201907\\201907-txt2\\");
 		while(!executorService.isTerminated()){
 			
 		}

@@ -13,7 +13,7 @@ import org.apache.commons.lang.StringUtils;
 
 public class TextLineDeal3 {
 	
-	static String personFilePath = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\txt\\name-txt\\";
+	static String personFilePath = "C:\\Users\\qinmp\\Desktop\\txt\\name-txt\\";
 	static String tc          					= "总胆固醇";
 	static String tg          					= "甘油三脂";
 	static String hdl_c       					= "高密度脂蛋白";

@@ -15,10 +15,10 @@ import org.apache.commons.lang.StringUtils;
 
 public class TextLineDeal2 {
 	
-	static String personFilePath = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\txt\\name-txt\\";
+	static String personFilePath = "C:\\Users\\qinmp\\Desktop\\txt\\name-txt\\";
 	
 	public static void main(String[] args) {
-		File dealfolder = new File("C:\\Users\\qinmp\\Desktop\\需求-整合201905\\txt\\");
+		File dealfolder = new File("C:\\Users\\qinmp\\Desktop\\txt\\");
 		File[] filelist = dealfolder.listFiles();
 		try {
 			for(File tempFile:filelist){

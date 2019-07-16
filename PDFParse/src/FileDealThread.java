@@ -15,7 +15,7 @@ import java.util.Set;
 public class FileDealThread implements Runnable {
 
 	public static Set<String> unitSet = null;
-	private String toPath = "C:\\Users\\qinmp\\Desktop\\pdffile2\\txt2\\";
+	private String toPath = "";
 	static {
 		unitSet = new HashSet<String>();
 		for (int i = 0; i < PdfUtil.charaterStr.length; i++) {

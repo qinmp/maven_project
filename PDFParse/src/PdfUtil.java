@@ -22,8 +22,8 @@ public static ExecutorService executorService = null;
 	
 	public static void getTextFromPDF()
 	{
-		String pdfPath = "C:\\Users\\qinmp\\Desktop\\大卡体重数据\\产检大卡2\\";
-		String txtFilePath = "C:\\Users\\qinmp\\Desktop\\大卡体重数据\\产检大卡2-txt\\";
+		String pdfPath = "C:\\Users\\qinmp\\Desktop\\体成分数据-提取201907\\pdf\\";
+		String txtFilePath = "C:\\Users\\qinmp\\Desktop\\体成分数据-提取201907\\201907-txt\\";
 		// 文件输入流，生成文本文件
 		File files = new File(pdfPath);
 		File[] listFiles = files.listFiles();

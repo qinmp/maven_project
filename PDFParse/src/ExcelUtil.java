@@ -17,8 +17,8 @@ import excel.ExportExcel;
 
 public class ExcelUtil {
 	
-	public static String sumExcelPath = "C:\\Users\\qinmp\\Desktop\\pdffile4\\excel\\体成分数据采集专用.xlsx";
-	public static String txtFileDirectoryPath = "C:\\Users\\qinmp\\Desktop\\pdffile4\\txt2\\";
+	public static String sumExcelPath = "C:\\Users\\qinmp\\Desktop\\体成分数据-提取201907\\excel\\体成分数据采集专用.xlsx";
+	public static String txtFileDirectoryPath = "C:\\Users\\qinmp\\Desktop\\体成分数据-提取201907\\201907-txt2\\";
 	public List<Map<String, Object>> getDefaultTable() {
 		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		String[] headers = { "姓名", "年龄（岁）", "体成分编号", "身高（cm）", "孕前体重(kg)", "孕周-体成分检测时（周+天）"
