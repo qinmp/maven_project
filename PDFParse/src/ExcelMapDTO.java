@@ -24,6 +24,30 @@ public class ExcelMapDTO {
 	private String after_60_min_blood_sugar;
 	//OGTT餐后120分钟血糖（mmol/L）
 	private String after_120_min_blood_sugar;
+	
+	//血糖测定0分钟
+	private String blood_sugar_test_0_min;
+	//血糖测定30分钟
+	private String blood_sugar_test_30_min;
+	//血糖测定60分钟
+	private String blood_sugar_test_60_min;
+	//血糖测定120分钟
+	private String blood_sugar_test_120_min;
+	//血糖测定180分钟
+	private String blood_sugar_test_180_min;
+	
+	//胰岛素0分钟
+	private String iletin_test_0_min;
+	//胰岛素30分钟
+	private String iletin_test_30_min;
+	//胰岛素60分钟
+	private String iletin_test_60_min;
+	//胰岛素120分钟
+	private String iletin_test_120_min;
+	//胰岛素180分钟
+	private String iletin_test_180_min;
+	
+	
 	//孕37周空腹血糖（mmol/L）
 	private String after_37_week_blood_sugar;
 	//孕37周糖化血清白蛋白(%)
@@ -125,6 +149,67 @@ public class ExcelMapDTO {
 	}
 	public void setAfter_120_min_blood_sugar(String after_120_min_blood_sugar) {
 		this.after_120_min_blood_sugar = after_120_min_blood_sugar;
+	}
+	
+	public String getBlood_sugar_test_0_min() {
+		return blood_sugar_test_0_min;
+	}
+	public void setBlood_sugar_test_0_min(String blood_sugar_test_0_min) {
+		this.blood_sugar_test_0_min = blood_sugar_test_0_min;
+	}
+	public String getBlood_sugar_test_30_min() {
+		return blood_sugar_test_30_min;
+	}
+	public void setBlood_sugar_test_30_min(String blood_sugar_test_30_min) {
+		this.blood_sugar_test_30_min = blood_sugar_test_30_min;
+	}
+	public String getBlood_sugar_test_60_min() {
+		return blood_sugar_test_60_min;
+	}
+	public void setBlood_sugar_test_60_min(String blood_sugar_test_60_min) {
+		this.blood_sugar_test_60_min = blood_sugar_test_60_min;
+	}
+	public String getBlood_sugar_test_120_min() {
+		return blood_sugar_test_120_min;
+	}
+	public void setBlood_sugar_test_120_min(String blood_sugar_test_120_min) {
+		this.blood_sugar_test_120_min = blood_sugar_test_120_min;
+	}
+	public String getBlood_sugar_test_180_min() {
+		return blood_sugar_test_180_min;
+	}
+	public void setBlood_sugar_test_180_min(String blood_sugar_test_180_min) {
+		this.blood_sugar_test_180_min = blood_sugar_test_180_min;
+	}
+	public String getIletin_test_0_min() {
+		return iletin_test_0_min;
+	}
+	public void setIletin_test_0_min(String iletin_test_0_min) {
+		this.iletin_test_0_min = iletin_test_0_min;
+	}
+	public String getIletin_test_30_min() {
+		return iletin_test_30_min;
+	}
+	public void setIletin_test_30_min(String iletin_test_30_min) {
+		this.iletin_test_30_min = iletin_test_30_min;
+	}
+	public String getIletin_test_60_min() {
+		return iletin_test_60_min;
+	}
+	public void setIletin_test_60_min(String iletin_test_60_min) {
+		this.iletin_test_60_min = iletin_test_60_min;
+	}
+	public String getIletin_test_120_min() {
+		return iletin_test_120_min;
+	}
+	public void setIletin_test_120_min(String iletin_test_120_min) {
+		this.iletin_test_120_min = iletin_test_120_min;
+	}
+	public String getIletin_test_180_min() {
+		return iletin_test_180_min;
+	}
+	public void setIletin_test_180_min(String iletin_test_180_min) {
+		this.iletin_test_180_min = iletin_test_180_min;
 	}
 	public String getAfter_37_week_blood_sugar() {
 		return after_37_week_blood_sugar;

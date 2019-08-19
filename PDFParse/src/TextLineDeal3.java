@@ -21,8 +21,21 @@ public class TextLineDeal3 {
 	static String blood_sugar      				= "血糖";
 	static String after_60_min_blood_sugar 		= "餐后血糖60分钟";
 	static String after_120_min_blood_sugar 	= "餐后血糖120分钟";
-	static String after_60_min_blood_sugar2 	= "血糖测定60分钟";
-	static String after_120_min_blood_sugar2 	= "血糖测定120钟";
+//	static String after_60_min_blood_sugar2 	= "血糖测定60分钟";
+//	static String after_120_min_blood_sugar2 	= "血糖测定120分钟";
+	
+	static String blood_sugar_test_0_min    	= "血糖测定0分钟";
+	static String blood_sugar_test_30_min    	= "血糖测定30分钟";
+	static String blood_sugar_test_60_min    	= "血糖测定60分钟";
+	static String blood_sugar_test_120_min    	= "血糖测定120钟"; //就是"血糖测定120钟" 分字是源文件就没有的
+	static String blood_sugar_test_180_min    	= "血糖测定180分钟";
+	
+	static String iletin_test_0_min    	    = "胰岛素0分钟";
+	static String iletin_test_30_min    	= "胰岛素30分钟";
+	static String iletin_test_60_min    	= "胰岛素60分钟";
+	static String iletin_test_120_min    	= "胰岛素120分钟";
+	static String iletin_test_180_min    	= "胰岛素180分钟";
+	
 	static String glycosylated_hemoglobin  		= "糖化血红蛋白";
 	static String ifcc_glycosylated_hemoglobin 	= "糖化血红蛋白(IFCC)";
 	static String glycated_albumin 				= "糖化血清白蛋白";
@@ -57,10 +70,8 @@ public class TextLineDeal3 {
 			}
 			System.out.println(excelMap.size());
 			return excelMap;
-//			writeExcelMapToExcel(excelMap);
 			
 		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -215,21 +226,79 @@ public class TextLineDeal3 {
 							excelMapDTO.setBlood_sugar(tmpvar);
 						}
 					}
-				} else if(lineTxt.contains(after_60_min_blood_sugar) || lineTxt.contains(after_60_min_blood_sugar2) ){//餐后血糖60分钟, 血糖测定60分钟
+				} else if(lineTxt.contains(after_60_min_blood_sugar) ){//餐后血糖60分钟
 					countMap.put(after_60_min_blood_sugar, 1);
-					countMap.put(after_60_min_blood_sugar2, 1);
 					if(StringUtils.isBlank(excelMapDTO.getAfter_60_min_blood_sugar())){
 						tmpvar = getAfter_60_min_blood_sugar(lineTxt);
 						excelMapDTO.setAfter_60_min_blood_sugar(tmpvar);
 					}
-				} else if(lineTxt.contains(after_120_min_blood_sugar) || lineTxt.contains(after_120_min_blood_sugar2)  ){//餐后血糖120分钟, 血糖测定120钟
+				} else if(lineTxt.contains(after_120_min_blood_sugar) ){//餐后血糖120分钟, 血糖测定120钟
 					countMap.put(after_120_min_blood_sugar, 1);
-					countMap.put(after_120_min_blood_sugar2, 1);
 					if(StringUtils.isBlank(excelMapDTO.getAfter_120_min_blood_sugar())){
 						tmpvar = getAfter_120_min_blood_sugar(lineTxt);
 						excelMapDTO.setAfter_120_min_blood_sugar(tmpvar);
 					}
-				} else if(lineTxt.contains(ifcc_glycosylated_hemoglobin)){//糖化血红蛋白（IFCC）
+				} else if(lineTxt.contains(blood_sugar_test_0_min) ){//血糖测定0分钟
+					countMap.put(blood_sugar_test_0_min, 1);
+					if(StringUtils.isBlank(excelMapDTO.getBlood_sugar_test_0_min())){
+						tmpvar = get_blood_sugar_test(lineTxt, blood_sugar_test_0_min);
+						excelMapDTO.setBlood_sugar_test_0_min(tmpvar);
+					}
+				} else if(lineTxt.contains(blood_sugar_test_30_min) ){//血糖测定30分钟
+					countMap.put(blood_sugar_test_30_min, 1);
+					if(StringUtils.isBlank(excelMapDTO.getBlood_sugar_test_30_min())){
+						tmpvar = get_blood_sugar_test_30_min(lineTxt, blood_sugar_test_30_min);
+						excelMapDTO.setBlood_sugar_test_30_min(tmpvar);
+					}
+				} else if(lineTxt.contains(blood_sugar_test_60_min) ){//血糖测定60分钟
+					countMap.put(blood_sugar_test_60_min, 1);
+					if(StringUtils.isBlank(excelMapDTO.getBlood_sugar_test_60_min())){
+						tmpvar = get_blood_sugar_test(lineTxt, blood_sugar_test_60_min);
+						excelMapDTO.setBlood_sugar_test_60_min(tmpvar);
+					}
+				} else if(lineTxt.contains(blood_sugar_test_120_min) ){//血糖测定120分钟
+					countMap.put(blood_sugar_test_120_min, 1);
+					if(StringUtils.isBlank(excelMapDTO.getBlood_sugar_test_120_min())){
+						tmpvar = get_blood_sugar_test(lineTxt, blood_sugar_test_120_min);
+						excelMapDTO.setBlood_sugar_test_120_min(tmpvar);
+					}
+				} else if(lineTxt.contains(blood_sugar_test_180_min) ){//血糖测定180分钟
+					countMap.put(blood_sugar_test_180_min, 1);
+					if(StringUtils.isBlank(excelMapDTO.getBlood_sugar_test_180_min())){
+						tmpvar = get_blood_sugar_test(lineTxt, blood_sugar_test_180_min);
+						excelMapDTO.setBlood_sugar_test_180_min(tmpvar);
+					}
+				} else if(lineTxt.contains(iletin_test_0_min) ){//胰岛素0分钟
+					countMap.put(iletin_test_0_min, 1);
+					if(StringUtils.isBlank(excelMapDTO.getIletin_test_0_min())){
+						tmpvar = get_blood_sugar_test(lineTxt, iletin_test_0_min);
+						excelMapDTO.setIletin_test_0_min(tmpvar);
+					}
+				} else if(lineTxt.contains(iletin_test_30_min) ){//胰岛素30分钟
+					countMap.put(iletin_test_30_min, 1);
+					if(StringUtils.isBlank(excelMapDTO.getIletin_test_30_min())){
+						tmpvar = get_blood_iletin_test_30_60_120_180(lineTxt, iletin_test_30_min);
+						excelMapDTO.setIletin_test_30_min(tmpvar);
+					}
+				}else if(lineTxt.contains(iletin_test_60_min) ){//胰岛素60分钟
+					countMap.put(iletin_test_60_min, 1);
+					if(StringUtils.isBlank(excelMapDTO.getIletin_test_60_min())){
+						tmpvar = get_blood_iletin_test_30_60_120_180(lineTxt, iletin_test_60_min);
+						excelMapDTO.setIletin_test_60_min(tmpvar);
+					}
+				}else if(lineTxt.contains(iletin_test_120_min) ){//胰岛素120分钟
+					countMap.put(iletin_test_120_min, 1);
+					if(StringUtils.isBlank(excelMapDTO.getIletin_test_120_min())){
+						tmpvar = get_blood_iletin_test_30_60_120_180(lineTxt, iletin_test_120_min);
+						excelMapDTO.setIletin_test_120_min(tmpvar);
+					}
+				}else if(lineTxt.contains(iletin_test_180_min) ){//胰岛素180分钟
+					countMap.put(iletin_test_180_min, 1);
+					if(StringUtils.isBlank(excelMapDTO.getIletin_test_180_min())){
+						tmpvar = get_blood_iletin_test_30_60_120_180(lineTxt, iletin_test_180_min);
+						excelMapDTO.setIletin_test_180_min(tmpvar);
+					}
+				}else if(lineTxt.contains(ifcc_glycosylated_hemoglobin)){//糖化血红蛋白（IFCC）
 					countMap.put(ifcc_glycosylated_hemoglobin, 1);
 					if(StringUtils.isBlank(excelMapDTO.getIfcc_glycosylated_hemoglobin())){
 						tmpvar = getIfcc_glycosylated_hemoglobin(lineTxt);
@@ -261,6 +330,7 @@ public class TextLineDeal3 {
 				}  
 		}
 	}
+
 
 	private static String get_hospital_record_no(String lineTxt) {
 		try {
@@ -358,8 +428,6 @@ public class TextLineDeal3 {
 			String tg1 = "";;
 			if(lineTxt.contains(after_120_min_blood_sugar)){
 				tg1 = lineTxt.substring(lineTxt.indexOf(after_120_min_blood_sugar) + after_120_min_blood_sugar.length(), lineTxt.indexOf("～")-4);
-			}else if(lineTxt.contains(after_120_min_blood_sugar2)){
-				tg1 = lineTxt.substring(lineTxt.indexOf(after_120_min_blood_sugar2) + after_120_min_blood_sugar2.length(), lineTxt.indexOf("～")-4);
 			}
 			return tg1.trim();
 		} catch (Exception e) {
@@ -373,8 +441,6 @@ public class TextLineDeal3 {
 			String tg1 = "";;
 			if(lineTxt.contains(after_60_min_blood_sugar)){
 				tg1 = lineTxt.substring(lineTxt.indexOf(after_60_min_blood_sugar) + after_60_min_blood_sugar.length(), lineTxt.indexOf("～")-4);
-			}else if(lineTxt.contains(after_60_min_blood_sugar2)){
-				tg1 = lineTxt.substring(lineTxt.indexOf(after_60_min_blood_sugar2) + after_60_min_blood_sugar2.length(), lineTxt.indexOf("～")-4);
 			}
 			return tg1.trim();
 		} catch (Exception e) {
@@ -383,6 +449,46 @@ public class TextLineDeal3 {
 		return "";
 	}
 
+	private static String get_blood_sugar_test(String lineTxt, String keyWord) {
+		try {
+			String tg1 = "";;
+			if(lineTxt.contains(keyWord)){
+				tg1 = lineTxt.substring(lineTxt.indexOf(keyWord) + keyWord.length(), lineTxt.indexOf("～")-4);
+			}
+			return tg1.trim();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+	
+
+	private static String get_blood_sugar_test_30_min(String lineTxt, String keyWord) {
+		try {
+			String tg1 = "";;
+			if(lineTxt.contains(keyWord)){
+				tg1 = lineTxt.substring(lineTxt.indexOf(keyWord) + keyWord.length(), lineTxt.indexOf("mM/L"));
+			}
+			return tg1.trim();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+	
+	private static String get_blood_iletin_test_30_60_120_180(String lineTxt, String keyWord) {
+		try {
+			String tg1 = "";;
+			if(lineTxt.contains(keyWord)){
+				tg1 = lineTxt.substring(lineTxt.indexOf(keyWord) + keyWord.length(), lineTxt.indexOf("uU/ml"));
+			}
+			return tg1.trim();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+	
 	private static String getGlycated_albumin(String lineTxt) {
 		try {
 			String tg1 = lineTxt.substring(lineTxt.indexOf(glycated_albumin) + glycated_albumin.length(), lineTxt.indexOf("～")-4);

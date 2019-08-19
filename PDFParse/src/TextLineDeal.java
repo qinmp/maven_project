@@ -20,7 +20,8 @@ public class TextLineDeal {
 		File[] filelist = dealFolder.listFiles();
 		try {
 				for(File tempFile:filelist){
-					if(!tempFile.getName().contains("better")){
+					
+					if(!tempFile.getName().contains("better") && !tempFile.isDirectory()){
 						String oldName = tempFile.getName().substring(0, tempFile.getName().indexOf("."));
 						File betterfile = new File(folderpath + oldName + "-better.txt");
 						if(!betterfile.exists()){
@@ -56,7 +57,6 @@ public class TextLineDeal {
 									tempStr = lineTxt;
 								}
 								tempStr = tempStr.replaceAll(" ", "");
-//								tempStr = tempStr.replaceAll("	", "");
 								liner.setValue(tempStr);
 								liners.add(liner);
 							}
@@ -113,7 +113,27 @@ public class TextLineDeal {
 			isYes = true;
 		} else if(lineTxt.contains("血糖测定120钟")){
 			isYes = true;
-		} else if(lineTxt.contains("住院号")){
+		} else if(lineTxt.contains("血糖测定0分钟")){
+			isYes = true;
+		}  else if(lineTxt.contains("血糖测定30分钟")){
+			isYes = true;
+		}  else if(lineTxt.contains("血糖测定60分钟")){
+			isYes = true;
+		}  else if(lineTxt.contains("血糖测定120分钟")){
+			isYes = true;
+		}  else if(lineTxt.contains("血糖测定180分钟")){
+			isYes = true;
+		} else if(lineTxt.contains("胰岛素0分钟")){
+			isYes = true;
+		}  else if(lineTxt.contains("胰岛素30分钟")){
+			isYes = true;
+		}  else if(lineTxt.contains("胰岛素60分钟")){
+			isYes = true;
+		}  else if(lineTxt.contains("胰岛素120分钟")){
+			isYes = true;
+		}  else if(lineTxt.contains("胰岛素180分钟")){
+			isYes = true;
+		}  else if(lineTxt.contains("住院号")){
 			isYes = true;
 		} else if(lineTxt.contains("联系方式")){
 			isYes = true;

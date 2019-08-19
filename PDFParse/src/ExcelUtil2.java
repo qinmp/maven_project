@@ -15,10 +15,15 @@ import org.apache.poi.ss.usermodel.Row;
 
 import excel.ExportExcel;
 
+/**
+ * 已丢弃
+ * @author qinmp
+ *
+ */
 public class ExcelUtil2 {
 	
-	public static String sumExcelPath = "C:\\Users\\qinmp\\Desktop\\pdffile3\\excel\\体成分数据采集专用.xlsx";
-	public static String txtFileDirectoryPath = "C:\\Users\\qinmp\\Desktop\\pdffile3\\txt3\\";
+	public static String sumExcelPath = "";
+	public static String txtFileDirectoryPath = "";
 	public List<Map<String, Object>> getDefaultTable() {
 		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		String[] headers = { "姓名", "年龄", "建卡时空腹总胆固醇1(TC)（mmol/L）", "建卡时甘油三脂(TG)（mmol/L）", "建卡时高密度脂蛋白胆固醇1(HDL-C)（mmol/L）", "建卡时低密度脂蛋白胆固醇1(LDL-C)（mmol/L）"

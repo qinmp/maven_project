@@ -16,7 +16,10 @@ public class ExcelUtil3 {
 		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		String[] headers = { "姓名", "年龄", "建卡时空腹总胆固醇(TC)（mmol/L）", "建卡时甘油三脂(TG)（mmol/L）", "建卡时高密度脂蛋白胆固醇(HDL-C)（mmol/L）", "建卡时低密度脂蛋白胆固醇(LDL-C)（mmol/L）"
 				, "建卡时空腹血糖（mmol/L）", "建卡时糖化血红蛋白(%)", "建卡时糖化血红蛋白(IFCC)（mmol/mol）", "建卡时糖化血清白蛋白(%)", 
-				"OGTT空腹血糖（mmol/L）", "OGTT餐后60分钟血糖（mmol/L）", "OGTT餐后120分钟血糖（mmol/L）", "孕37周空腹血糖（mmol/L）", "孕37周糖化血清白蛋白(%)", "孕37周空腹总胆固醇(TC)（mmol/L）", "孕37周甘油三醋(TG)（mmol/L）", 
+				"OGTT空腹血糖（mmol/L）", "OGTT餐后60分钟血糖（mmol/L）", "OGTT餐后120分钟血糖（mmol/L）", 
+				"血糖测定0分钟","血糖测定30分钟","血糖测定60分钟","血糖测定120分钟","血糖测定180分钟", 
+				"胰岛素0分钟","胰岛素30分钟","胰岛素60分钟","胰岛素120分钟","胰岛素180分钟", 
+				"孕37周空腹血糖（mmol/L）", "孕37周糖化血清白蛋白(%)", "孕37周空腹总胆固醇(TC)（mmol/L）", "孕37周甘油三醋(TG)（mmol/L）", 
 				"孕37周高密度脂蛋白胆固醇(HDL-C)（mmol/L）", "孕37周低密度脂蛋白胆固醇(LDL-C)（mmol/L）", "住院号", "联系电话","产后出血量（ml）", "新生儿出生体重（g）", "产后诊断", "备注"};
 		for (int i = 0; i < headers.length; i++) {
 			Map<String, Object> fieldMap = new HashMap<String, Object>();
@@ -61,18 +64,33 @@ public class ExcelUtil3 {
 				exportExcel.addCell(row, 10,isNumeric(data.getOgtt_blood_sugar())?Double.valueOf(data.getOgtt_blood_sugar()):data.getOgtt_blood_sugar());
 				exportExcel.addCell(row, 11, isNumeric(data.getAfter_60_min_blood_sugar())?Double.valueOf(data.getAfter_60_min_blood_sugar()):data.getAfter_60_min_blood_sugar());
 				exportExcel.addCell(row, 12, isNumeric(data.getAfter_120_min_blood_sugar())?Double.valueOf(data.getAfter_120_min_blood_sugar()):data.getAfter_120_min_blood_sugar());
-				exportExcel.addCell(row, 13,isNumeric(data.getAfter_37_week_blood_sugar())?Double.valueOf(data.getAfter_37_week_blood_sugar()):data.getAfter_37_week_blood_sugar());
-				exportExcel.addCell(row, 14,isNumeric(data.getAfter_37_week_glycated_albumin())?Double.valueOf(data.getAfter_37_week_glycated_albumin()):data.getAfter_37_week_glycated_albumin());
-				exportExcel.addCell(row, 15,isNumeric(data.getAfter_37_week_tc())?Double.valueOf(data.getAfter_37_week_tc()):data.getAfter_37_week_tc());
-				exportExcel.addCell(row, 16,isNumeric(data.getAfter_37_week_tg())?Double.valueOf(data.getAfter_37_week_tg()):data.getAfter_37_week_tg());
-				exportExcel.addCell(row, 17,isNumeric(data.getAfter_37_week_hdl_c())?Double.valueOf(data.getAfter_37_week_hdl_c()):data.getAfter_37_week_hdl_c());
-				exportExcel.addCell(row, 18,isNumeric(data.getAfter_37_week_ldl_c())?Double.valueOf(data.getAfter_37_week_ldl_c()):data.getAfter_37_week_ldl_c());
-				exportExcel.addCell(row, 19,isNumeric(data.getMedical_record_no())?Double.valueOf(data.getMedical_record_no()):data.getMedical_record_no());
-				exportExcel.addCell(row, 20,isNumeric(data.getMobile())?Double.valueOf(data.getMobile()):data.getMobile());
-				exportExcel.addCell(row, 21,isNumeric(data.getPostpartum_hemorrhage())?Double.valueOf(data.getPostpartum_hemorrhage()):data.getPostpartum_hemorrhage());
-				exportExcel.addCell(row, 22,isNumeric(data.getWeight())?Double.valueOf(data.getWeight()):data.getWeight());
-				exportExcel.addCell(row, 23,data.getPostpartum_diagnosis());
-				exportExcel.addCell(row, 24,data.getRemark());
+				//血糖测定0~180分钟
+				exportExcel.addCell(row, 13, isNumeric(data.getBlood_sugar_test_0_min())?Double.valueOf(data.getBlood_sugar_test_0_min()):data.getBlood_sugar_test_0_min());
+				exportExcel.addCell(row, 14, isNumeric(data.getBlood_sugar_test_30_min())?Double.valueOf(data.getBlood_sugar_test_30_min()):data.getBlood_sugar_test_30_min());
+				exportExcel.addCell(row, 15, isNumeric(data.getBlood_sugar_test_60_min())?Double.valueOf(data.getBlood_sugar_test_60_min()):data.getBlood_sugar_test_60_min());
+				exportExcel.addCell(row, 16, isNumeric(data.getBlood_sugar_test_120_min())?Double.valueOf(data.getBlood_sugar_test_120_min()):data.getBlood_sugar_test_120_min());
+				exportExcel.addCell(row, 17, isNumeric(data.getBlood_sugar_test_180_min())?Double.valueOf(data.getBlood_sugar_test_180_min()):data.getBlood_sugar_test_180_min());
+				
+				//胰岛素0~180分钟
+				exportExcel.addCell(row, 18, isNumeric(data.getIletin_test_0_min())?Double.valueOf(data.getIletin_test_0_min()):data.getIletin_test_0_min());
+				exportExcel.addCell(row, 19, isNumeric(data.getIletin_test_30_min())?Double.valueOf(data.getIletin_test_30_min()):data.getIletin_test_30_min());
+				exportExcel.addCell(row, 20, isNumeric(data.getIletin_test_60_min())?Double.valueOf(data.getIletin_test_60_min()):data.getIletin_test_60_min());
+				exportExcel.addCell(row, 21, isNumeric(data.getIletin_test_120_min())?Double.valueOf(data.getIletin_test_120_min()):data.getIletin_test_120_min());
+				exportExcel.addCell(row, 22, isNumeric(data.getIletin_test_180_min())?Double.valueOf(data.getIletin_test_180_min()):data.getIletin_test_180_min());
+				
+				
+				exportExcel.addCell(row, 23,isNumeric(data.getAfter_37_week_blood_sugar())?Double.valueOf(data.getAfter_37_week_blood_sugar()):data.getAfter_37_week_blood_sugar());
+				exportExcel.addCell(row, 24,isNumeric(data.getAfter_37_week_glycated_albumin())?Double.valueOf(data.getAfter_37_week_glycated_albumin()):data.getAfter_37_week_glycated_albumin());
+				exportExcel.addCell(row, 25,isNumeric(data.getAfter_37_week_tc())?Double.valueOf(data.getAfter_37_week_tc()):data.getAfter_37_week_tc());
+				exportExcel.addCell(row, 26,isNumeric(data.getAfter_37_week_tg())?Double.valueOf(data.getAfter_37_week_tg()):data.getAfter_37_week_tg());
+				exportExcel.addCell(row, 27,isNumeric(data.getAfter_37_week_hdl_c())?Double.valueOf(data.getAfter_37_week_hdl_c()):data.getAfter_37_week_hdl_c());
+				exportExcel.addCell(row, 28,isNumeric(data.getAfter_37_week_ldl_c())?Double.valueOf(data.getAfter_37_week_ldl_c()):data.getAfter_37_week_ldl_c());
+				exportExcel.addCell(row, 29,isNumeric(data.getMedical_record_no())?Double.valueOf(data.getMedical_record_no()):data.getMedical_record_no());
+				exportExcel.addCell(row, 30,isNumeric(data.getMobile())?Double.valueOf(data.getMobile()):data.getMobile());
+				exportExcel.addCell(row, 31,isNumeric(data.getPostpartum_hemorrhage())?Double.valueOf(data.getPostpartum_hemorrhage()):data.getPostpartum_hemorrhage());
+				exportExcel.addCell(row, 32,isNumeric(data.getWeight())?Double.valueOf(data.getWeight()):data.getWeight());
+				exportExcel.addCell(row, 33,data.getPostpartum_diagnosis());
+				exportExcel.addCell(row, 34,data.getRemark());
 			}
 			try {
 				exportExcel.writeFile(sumExcelPath);

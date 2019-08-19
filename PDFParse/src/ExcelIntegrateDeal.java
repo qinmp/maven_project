@@ -15,13 +15,13 @@ import excel.ImportExcel;
 
 public class ExcelIntegrateDeal { 
 	
-	public static String excel1Path = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\1.检验信息.xlsx";
-	public static String excel2Path = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\2.体成分.xlsx";
-	public static String excel3Path = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\3.产科数据.xlsx";
-	public static String excel4Path = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\4.1产检大卡1.xlsx";
-	public static String excel5Path = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\4.2产检大卡1-2.xlsx";
-	public static String sumExcelPath1 = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\sumExcel1.xlsx";
-	public static String sumExcelPath2 = "C:\\Users\\qinmp\\Desktop\\需求-整合201905\\excel\\sumExcel2.xlsx";
+	public static String excel1Path = "C:\\Users\\qinmp\\Desktop\\txt\\excel\\1.检验信息.xlsx";
+	public static String excel2Path = "C:\\Users\\qinmp\\Desktop\\txt\\excel\\2.体成分.xlsx";
+	public static String excel3Path = "C:\\Users\\qinmp\\Desktop\\txt\\excel\\3.产科数据.xlsx";
+	public static String excel4Path = "C:\\Users\\qinmp\\Desktop\\txt\\excel\\4.1产检大卡1.xlsx";
+	public static String excel5Path = "C:\\Users\\qinmp\\Desktop\\txt\\excel\\4.2产检大卡1-2.xlsx";
+	public static String sumExcelPath1 = "C:\\Users\\qinmp\\Desktop\\txt\\excel\\sumExcel1.xlsx";
+	public static String sumExcelPath2 = "C:\\Users\\qinmp\\Desktop\\txt\\excel\\sumExcel2.xlsx";
 	
 	public static void main(String[] args) {
 		
