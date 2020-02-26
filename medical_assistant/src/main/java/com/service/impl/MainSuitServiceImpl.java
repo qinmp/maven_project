@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import com.bean.MainSuitReqBean;
 import com.dao.BasicInfoDao;
 import com.dao.MainSuitDao;
-import com.exception.MyException;
+import com.exception.BusinessException;
 import com.model.BasicInfo;
 import com.model.MainSuit;
 import com.service.MainSuitService;
@@ -38,17 +38,17 @@ public class MainSuitServiceImpl  extends BaseServiceImpl<MainSuit, Long> implem
 		MainSuit mainSuit1 = null;
 		MainSuit mainSuit2 = null;
 		if(null == accountId){
-			throw new MyException("请先登录");
+			throw new BusinessException("请先登录");
 		} else if(StringUtils.isBlank(bean.getSerialNo())){
-			throw new MyException("序列号不能为空");
+			throw new BusinessException("序列号不能为空");
 		} else if((bean.getMainSuitValue() == 0) || (bean.getMainSuitValue() > 24)){
-			throw new MyException("请选择主诉");
+			throw new BusinessException("请选择主诉");
 		} else if(StringUtils.isBlank(bean.getAttackTime())){
-			throw new MyException("请选择发病时间");
+			throw new BusinessException("请选择发病时间");
 		}
 		BasicInfo basicInfo = basicInfoDao.load("serialNo", bean.getSerialNo());
 		if(null == basicInfo){
-			throw new MyException("请先保存基本信息");
+			throw new BusinessException("请先保存基本信息");
 		}
 		mainSuit1 = mainSuitDao.load("serialNo", bean.getSerialNo());
 		if(null == mainSuit1){
@@ -66,7 +66,7 @@ public class MainSuitServiceImpl  extends BaseServiceImpl<MainSuit, Long> implem
 		//如果第二个主诉不为空，添加进数据库
 		if((bean.getMainSuitValue2() != 0) && (bean.getMainSuitValue2() <= 24)){
 			if(StringUtils.isBlank(bean.getAttackTime2())){
-				throw new MyException("请选择发病时间");
+				throw new BusinessException("请选择发病时间");
 			}
 			mainSuit2 = new MainSuit();
 			mainSuit2.setAttackTime(new Timestamp(DateUtil.toDate(bean.getAttackTime2()).getTime()));
@@ -86,7 +86,7 @@ public class MainSuitServiceImpl  extends BaseServiceImpl<MainSuit, Long> implem
 	public void deleteMainSuit(MainSuitReqBean bean, ServiceResult result, Long accountId) {
 		// TODO Auto-generated method stub
 		if(StringUtils.isBlank(bean.getSerialNo())){
-			throw new MyException("合同编码不能为空");
+			throw new BusinessException("合同编码不能为空");
 		}
 		//主诉一起删除
 		List<MainSuit> mainSuits = mainSuitDao.query(new String[]{"serialNo","accountId"}, new Object[]{bean.getSerialNo(), accountId});

@@ -31,11 +31,6 @@ import com.google.common.collect.Lists;
 import com.util.excel.annotation.ExcelField;
 
 
-/**
-* @Description: 导入Excel文件（支持“XLS”和“XLSX”格式）
-* @author kezhiyang
-* @create 20:28 2017/9/27
-**/
 public class ImportExcel {
 
     private static Logger log = LoggerFactory.getLogger(ImportExcel.class);

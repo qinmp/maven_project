@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bean.LoginAndRegisterReqBean;
-import com.exception.MyException;
+import com.exception.BusinessException;
 import com.service.AccountService;
 import com.util.vo.ServiceResult;
 
@@ -40,7 +40,7 @@ public class LoginAndRegisterController extends BaseController {
 			ServiceResult result = new ServiceResult(false, returnFailMessage);
 			try {
 				accountService.toRegister(request, bean, result);
-			} catch (MyException e) {
+			} catch (BusinessException e) {
 				result.setIsSuccess(false);
 				result.setMessage(e.getMessage());
 			} catch (Exception e) {
@@ -57,7 +57,7 @@ public class LoginAndRegisterController extends BaseController {
 			ServiceResult result = new ServiceResult(false, returnFailMessage);
 			try {
 				accountService.toLogin(request, bean, result);
-			} catch (MyException e) {
+			} catch (BusinessException e) {
 				result.setIsSuccess(false);
 				result.setMessage(e.getMessage());
 			} catch (Exception e) {

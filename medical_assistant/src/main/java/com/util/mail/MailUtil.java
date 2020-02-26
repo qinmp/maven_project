@@ -1,15 +1,14 @@
 package com.util.mail;
 
-import java.io.UnsupportedEncodingException;
-import java.util.Date;
-import java.util.Properties;
-
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.UnsupportedEncodingException;
+import java.util.Date;
+import java.util.Properties;
 
 public class MailUtil {
 	
@@ -68,7 +67,7 @@ public class MailUtil {
 	}
 
 	public static void main(String[] args){
-		sendMail("m18684048891@163.com", "31123569ljy", new String[]{"qinmp@fadada.com"}, "test", "testContent");
+		sendMail("", "", new String[]{""}, "test", "testContent");
 	}
 	
 }

@@ -9,11 +9,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 
-/**
-* @Description:Excel注解定义
-* @author kezhiyang
-* @create 20:30 2017/9/27
-**/
+
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ExcelField {

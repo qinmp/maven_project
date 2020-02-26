@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bean.ForgetReqBean;
-import com.exception.MyException;
+import com.exception.BusinessException;
 import com.service.AccountService;
 import com.service.ForgetPwdService;
 import com.util.vo.ServiceResult;
@@ -47,7 +47,7 @@ public class ForgetPwdController extends BaseController  {
 		try {
 			forgetPwdService.sendVerifyCode(bean, "验证码发放", request, result);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -68,7 +68,7 @@ public class ForgetPwdController extends BaseController  {
 		try {
 			accountService.changePwd(request, bean, result);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());

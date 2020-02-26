@@ -1,7 +1,11 @@
 package com.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
+import com.bean.*;
+import com.exception.BusinessException;
+import com.model.Account;
+import com.service.*;
+import com.util.session.SessionUtil;
+import com.util.vo.ServiceResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -10,29 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bean.BasicInfoReqBean;
-import com.bean.BirthHistoryReqBean;
-import com.bean.FamilyHistoryReqBean;
-import com.bean.MainSuitReqBean;
-import com.bean.MenstrualHistoryReqBean;
-import com.bean.OtherSymptomReqBean;
-import com.bean.PastHistoryReqBean;
-import com.bean.PersonHistoryReqBean;
-import com.bean.PresentIllnessReqBean;
-import com.exception.MyException;
-import com.model.Account;
-import com.service.BasicInfoService;
-import com.service.MainSuitService;
-import com.service.PastHistoryService;
-import com.service.PresentIllnessService;
-import com.service.TBirthHistoryService;
-import com.service.TFamilyHistoryService;
-import com.service.TMarryHistoryService;
-import com.service.TMenstrualHistoryService;
-import com.service.TOtherSymptomsService;
-import com.service.TPersonHistoryService;
-import com.util.session.SessionUtil;
-import com.util.vo.ServiceResult;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller("accountController")
 @Scope("prototype")
@@ -78,7 +60,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			basicInfoService.deleteBasicInfo(bean, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -100,7 +82,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			mainSuitService.deleteMainSuit(bean, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -122,7 +104,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			basicInfoService.saveBasicInfo(bean, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -144,7 +126,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			mainSuitService.saveMainSuit(bean, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -166,7 +148,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			presentIllnessService.savePresentIllness(bean, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -188,7 +170,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			presentIllnessService.getPresentIllness(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -210,7 +192,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			presentIllnessService.deletePresentIllnessBySerialNo(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -233,7 +215,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tOtherSymptomsService.saveOtherSymptom(bean, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -255,7 +237,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tOtherSymptomsService.getOtherSymptom(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -277,7 +259,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tOtherSymptomsService.deleteOtherSymptom(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -299,7 +281,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			pastHistoryService.savePastHistory(bean1, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -321,7 +303,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			pastHistoryService.getPastHistory(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -343,7 +325,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			pastHistoryService.deletePastHistory(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -365,7 +347,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			personHistoryService.savePersonHistory(bean2, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -386,7 +368,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			personHistoryService.getPersonHistory(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -408,7 +390,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			personHistoryService.deletePersonHistory(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -430,7 +412,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tMarryHistoryService.saveMarryHistory(marryType, serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -451,7 +433,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tMarryHistoryService.getMarryHistory(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -473,7 +455,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tMarryHistoryService.deleteMarryHistory(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -495,7 +477,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tFamilyHistoryService.saveFamilyHistory(bean3, serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -516,7 +498,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tFamilyHistoryService.getFamilyHistory(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -538,7 +520,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tFamilyHistoryService.deleteFimalyHistory(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -560,7 +542,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tMenstrualHistoryService.saveMenstrualHistory(bean4, serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -581,7 +563,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tMenstrualHistoryService.getMenstrualHistory(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -603,7 +585,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tMenstrualHistoryService.deleteMenstrualHistory(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -625,7 +607,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tBirthHistoryService.saveBirthHistory(bean5, serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -646,7 +628,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tBirthHistoryService.getBirthHistory(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());
@@ -668,7 +650,7 @@ public class AccountController extends BaseController {
 			Long accountId = (Long)SessionUtil.getSession(request, Account.LOGIN_ACCOUNT_ID);
 			tBirthHistoryService.deleteBirthHistory(serialNo, result, accountId);
 			return result.toJSON();
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			// TODO: handle exception
 			result.setIsSuccess(false);
 			result.setMessage(e.getMessage());

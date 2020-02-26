@@ -1,22 +1,15 @@
 package com.util.vo;
 
-import java.io.Serializable;
-import java.util.LinkedHashMap;
-
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import net.sf.json.util.PropertyFilter;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
-/**
- * @Description:action层调用service层执行的结果
- * @Copyright: 深圳法大大网络科技有限公司 (c)2016
- * @Created Date : 2016-3-18
- * @author jcf
- * @vesion 2.0
- */
+import java.io.Serializable;
+import java.util.LinkedHashMap;
+
+
 public class ServiceResult implements Serializable {
 
 	private static Logger logger = Logger.getLogger(ServiceResult.class);

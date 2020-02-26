@@ -10,12 +10,6 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 
-/**
- * 常用工具类
- * 
- * @author Administrator
- * 
- */
 public class MyStringUtil {
 	/**
      * 正则表达式：验证手机号

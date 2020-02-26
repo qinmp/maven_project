@@ -1,5 +1,7 @@
 package com.util;
 
+import org.apache.commons.lang.StringUtils;
+
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -7,15 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.apache.commons.lang.StringUtils;
 
-/**
- * @Description:日期处理函数
- * @Copyright: 深圳法大大网络科技有限公司 (c)2016
- * @Created Date : 2016-3-16
- * @author “”
- * @vesion 2.0
- */
 public class DateUtil {
 
 	public static String DEFAULT_PATTERN_YYMMMMDD = "yyyy-MM-dd";
@@ -361,19 +355,6 @@ public class DateUtil {
     }
     
 	public static void main(String[] args) {
-//		System.out.println(DateUtil.dateToString(DateUtil.addDay(new Date(), -10)));
-//		System.out.println(toDate(getToday("yyyy-MM-dd")));
-		
-//		MemCached cache = MemCached.getInstance();
-//		cache.delete("helloqinmp");
-//		cache.add("helloqinmp", "aaaa");
-//		System.out.println(cache.get("helloqinmp"));
-//		System.out.println(cache.add("helloqinmp", "bbbb"));
-//		System.out.println(cache.get("helloqinmp"));
-//		System.out.println(cache.add("helloqinmp", "cccx"));
-//		System.out.println(cache.get("helloqinmp"));
-//		cache.delete("helloqinmp");
-//		System.out.println(cache.add("helloqinmp", "dddd"));
-//		System.out.println(cache.get("helloqinmp"));
+
 	}
 }

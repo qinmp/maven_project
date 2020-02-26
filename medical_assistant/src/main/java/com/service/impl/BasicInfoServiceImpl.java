@@ -22,7 +22,7 @@ import com.bean.BasicInfoReqBean;
 import com.bean.PresentIllnessRespBean;
 import com.dao.BasicInfoDao;
 import com.dao.MainSuitDao;
-import com.exception.MyException;
+import com.exception.BusinessException;
 import com.model.Account;
 import com.model.BasicInfo;
 import com.model.MainSuit;
@@ -86,21 +86,21 @@ public class BasicInfoServiceImpl  extends BaseServiceImpl<BasicInfo, Long> impl
 	public void saveBasicInfo(BasicInfoReqBean bean, ServiceResult result, Long accountId) {
 		BasicInfo basicInfo = null;
 		if(null == accountId){
-			throw new MyException("请先登录");
+			throw new BusinessException("请先登录");
 		} else if(StringUtils.isBlank(bean.getSerialNo())){
-			throw new MyException("序列号不能为空");
+			throw new BusinessException("序列号不能为空");
 		} else if(StringUtils.isBlank(bean.getName())){
-			throw new MyException("姓名不能为空");
+			throw new BusinessException("姓名不能为空");
 		} else if(StringUtils.isBlank(bean.getRealBirthDay())){
-			throw new MyException("出生日期不能为空");
+			throw new BusinessException("出生日期不能为空");
 		} else if(StringUtils.isBlank(bean.getAge())){
-			throw new MyException("年龄不能为空");
+			throw new BusinessException("年龄不能为空");
 		} else if(StringUtils.isBlank(String.valueOf(bean.getSex()))){
-			throw new MyException("性别不能为空");
+			throw new BusinessException("性别不能为空");
 		} else if(nativePlaceIsUnright(bean.getNativePlace())){
-			throw new MyException("请填写完整籍贯");
+			throw new BusinessException("请填写完整籍贯");
 		} else if(presentResidenceIsUnright(bean.getPresentResidence())){
-			throw new MyException("请填写完整现居住地");
+			throw new BusinessException("请填写完整现居住地");
 		}
 		basicInfo = basicInfoDao.load("serialNo", bean.getSerialNo());
 		if(null == basicInfo){
@@ -316,11 +316,11 @@ public class BasicInfoServiceImpl  extends BaseServiceImpl<BasicInfo, Long> impl
 	@Override
 	public void deleteBasicInfo(BasicInfoReqBean bean, ServiceResult result, Long accountId) {
 		if(StringUtils.isBlank(bean.getSerialNo())){
-			throw new MyException("合同编码不能为空");
+			throw new BusinessException("合同编码不能为空");
 		}
 		List<BasicInfo> basicInfos = basicInfoDao.query(new String[]{"serialNo","accountId"}, new Object[]{bean.getSerialNo(), accountId});
 		if(basicInfos.isEmpty()){
-			throw new MyException("删除失败");
+			throw new BusinessException("删除失败");
 		}
 		BasicInfo basicInfo = basicInfos.get(0);
 		basicInfoDao.delete(basicInfo);

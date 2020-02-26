@@ -7,7 +7,7 @@ import com.bean.PersonHistoryReqBean;
 import com.bean.enumobj.DrinkTypeEnum;
 import com.bean.enumobj.SmokingTypeEnum;
 import com.dao.TPersonHistoryDAO;
-import com.exception.MyException;
+import com.exception.BusinessException;
 import com.model.TPersonHistory;
 import com.service.TPersonHistoryService;
 import com.util.DateUtil;
@@ -84,15 +84,15 @@ public class TPersonHistoryServiceImpl extends BaseServiceImpl<TPersonHistory, L
 
 	private void checkTypeIsNotZero(PersonHistoryReqBean bean) {
 	    if(bean.getSerialNo() == null){
-	    	throw new MyException("序列号不能为空");  
+	    	throw new BusinessException("序列号不能为空");
 	    } else if(bean.getSmokingType() == 0){
-			throw new MyException("请选择是否有过吸烟史");
+			throw new BusinessException("请选择是否有过吸烟史");
 		} else if(bean.getDrinkType() == 0){
-			throw new MyException("请选择是否有过喝酒史");
+			throw new BusinessException("请选择是否有过喝酒史");
 		} else if(bean.getHasLifeEpidemicArea() == 0){
-			throw new MyException("请选择是否到过疫地生活");
+			throw new BusinessException("请选择是否到过疫地生活");
 		} else if(bean.getDrinkType() != 1 && bean.getAlcoholType() == 0){
-			throw new MyException("请选择酒精类型");
+			throw new BusinessException("请选择酒精类型");
 		} 
 	}
 	

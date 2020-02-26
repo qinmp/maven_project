@@ -12,7 +12,7 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 
-import com.exception.MyException;
+import com.exception.BusinessException;
 import com.util.string.StringEscapeEditor;
 
 public class BaseController {
@@ -41,7 +41,7 @@ public class BaseController {
 	public String exp(HttpServletRequest request, Exception ex) {
 		request.setAttribute("ex", ex);
 		// 根据不同错误转向不同页面
-		if (ex instanceof MyException) {
+		if (ex instanceof BusinessException) {
 			logger.error(ex.getMessage());
 			return "/myException";
 		} else {

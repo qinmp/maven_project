@@ -1,29 +1,15 @@
 package com.sevlet;
 
-import java.io.IOException;
+import com.util.image.SCaptcha;
+import com.util.vo.GlobalConstants;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-import com.util.image.SCaptcha;
-import com.util.vo.GlobalConstants;
-
-/**
- * <h3>概要:</h3> 
- *    该类主要用于生成图片验证码
- * <br>
- * <h3>功能:</h3>
- * <ol>
- * 		<li>TODO(这里用一句话描述功能点)</li>
- * </ol>
- * <h3>履历:</h3>
- * <ol>
- * 		<li>2015-1-12[suxh] 新建</li>
- * </ol>
- */
 @WebServlet(urlPatterns = "/image/verifycode.jpg")
 public class VerifyCodeServlet extends HttpServlet {
 	private static final long serialVersionUID = -7514717430561901414L;

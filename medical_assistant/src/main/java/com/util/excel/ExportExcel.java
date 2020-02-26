@@ -36,12 +36,6 @@ import org.slf4j.LoggerFactory;
 import com.google.common.collect.Lists;
 import com.util.excel.annotation.ExcelField;
 
-
-/**
-* @Description:导出Excel文件（导出“XLSX”格式，支持大数据量导出   @see org.apache.poi.ss.SpreadsheetVersion）*
-* @author kezhiyang
-* @create 20:29 2017/9/27
-**/
 public class ExportExcel {
 
     private static Logger log = LoggerFactory.getLogger(ExportExcel.class);

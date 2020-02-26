@@ -1,11 +1,5 @@
 package com.util.vo;
-/**
- * @Description:系统有用到的全局变量
- * @Copyright: 
- * @Created Date : 2016-3-21
- * @author 
- * @vesion 2.0
- */
+
 public interface GlobalConstants {
 	/** 显示的公司名称 */
 	/** 验证码session名称 */

@@ -19,12 +19,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 
 
-/**
-* @Description:反射工具类.
- * 提供调用getter/setter方法, 访问私有变量, 调用私有方法, 获取泛型类型Class, 被AOP过的真实类等工具函数.
-* @author kezhiyang
-* @create 20:29 2017/9/27
-**/
 public class Reflections {
 
     private static final String SETTER_PREFIX = "set";

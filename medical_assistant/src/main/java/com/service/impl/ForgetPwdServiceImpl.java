@@ -7,9 +7,8 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import com.bean.ForgetReqBean;
-import com.exception.MyException;
+import com.exception.BusinessException;
 import com.service.ForgetPwdService;
-import com.util.mail.MailUtil;
 import com.util.session.SessionUtil;
 import com.util.string.MyStringUtil;
 import com.util.vo.GlobalConstants;
@@ -22,13 +21,13 @@ public class ForgetPwdServiceImpl implements ForgetPwdService {
 	public void sendVerifyCode(ForgetReqBean bean, String subject, HttpServletRequest request, ServiceResult result) {
 		// TODO Auto-generated method stub
 		if(StringUtils.isBlank(bean.getTel())){
-			throw new MyException("邮箱不能为空");
+			throw new BusinessException("邮箱不能为空");
 		}else if(!MyStringUtil.checkEmail(bean.getTel(), bean.getTel().length())){
-			throw new MyException("邮箱格式不正确");
+			throw new BusinessException("邮箱格式不正确");
 		} else if(StringUtils.isBlank(bean.getCode())){
-			throw new MyException("图形验证码不能为空");
+			throw new BusinessException("图形验证码不能为空");
 		}else if(!bean.getCode().equals((String)SessionUtil.getSession(request, GlobalConstants.VERIFYCODE_SESSION))){
-			throw new MyException("图形验证码不正确");
+			throw new BusinessException("图形验证码不正确");
 		}
 		
 		Integer randomCode = (int)((Math.random()*9+1)*100000);

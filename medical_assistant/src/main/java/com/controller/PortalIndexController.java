@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dto.PrivinceHospitalDTO;
-import com.exception.MyException;
+import com.exception.BusinessException;
 import com.util.FtlUtils;
 import com.util.excel.ImportExcel;
 import com.util.session.SessionUtil;
@@ -60,7 +60,7 @@ public class PortalIndexController extends BaseController {
 				}
 			}
 			
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
@@ -135,7 +135,7 @@ public class PortalIndexController extends BaseController {
 	public String logout(HttpServletRequest request, ModelMap modelMap) {
 		try {
 			SessionUtil.updateSession(request);
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {

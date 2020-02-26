@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bean.PastHistoryReqBean;
 import com.bean.PastHistoryRespBean;
-import com.exception.MyException;
+import com.exception.BusinessException;
 import com.model.TAllergicHistory;
 import com.model.TBloodTransfusion;
 import com.model.TInfectionHistory;
@@ -72,7 +72,7 @@ public class PastHistoryServiceImpl extends BaseServiceImpl<Object, Long> implem
 		model.setDrugsTaken(bean.getHasDrugsBeingUsedType());
 		if(bean.getUntreatedDiseaseHistoryType() == 1){
 			if(bean.getUntreatedDiseaseTime() == null || bean.getUntreatedDiseaseName() == null){
-				throw new MyException("未治愈疾病发病时间或者未治愈疾病名称不能为空");
+				throw new BusinessException("未治愈疾病发病时间或者未治愈疾病名称不能为空");
 			}
 			model.setIllnessName(bean.getUntreatedDiseaseName());
 			model.setHappendTime(new Timestamp(DateUtil.toDate(bean.getUntreatedDiseaseTime()).getTime()));
@@ -83,7 +83,7 @@ public class PastHistoryServiceImpl extends BaseServiceImpl<Object, Long> implem
 		
 		if(bean.getHasDrugsBeingUsedType() == 1){
 			if(bean.getDrugsBeingUsedTime() == null || bean.getDrugsBeingUsedName() == null){
-				throw new MyException("正在服用的药物开始服用时间或者药名不能为空");
+				throw new BusinessException("正在服用的药物开始服用时间或者药名不能为空");
 			}
 			model.setDrugsTakenTime(new Timestamp(DateUtil.toDate(bean.getDrugsBeingUsedTime()).getTime()));
 			model.setDrugsName(bean.getDrugsBeingUsedName());
@@ -126,7 +126,7 @@ public class PastHistoryServiceImpl extends BaseServiceImpl<Object, Long> implem
 		model.setBloodTransfusionType(bean.getTransfusionHistoryType());
 		if(bean.getTransfusionHistoryType() == 1){
 			if(bean.getTransfusionTime() == null || bean.getTransfusionOperationName() == null){
-				throw new MyException("输血时间或者输血手术名称不能为空");
+				throw new BusinessException("输血时间或者输血手术名称不能为空");
 			}
 			model.setBloodTransfusionTime(new Timestamp(DateUtil.toDate(bean.getTransfusionTime()).getTime()));
 			model.setOperationName(bean.getTransfusionOperationName());
@@ -157,7 +157,7 @@ public class PastHistoryServiceImpl extends BaseServiceImpl<Object, Long> implem
 			model.setOperationTime(null);
 		} else if(bean.getOperationHistoryType() == 1){
 			if(bean.getOperationName() == null || bean.getOperationTime() == null){
-				throw new MyException("手术名称或者手术时间不能为空");
+				throw new BusinessException("手术名称或者手术时间不能为空");
 			}
 			model.setOperationName(bean.getOperationName());
 			model.setOperationTime(new Timestamp(DateUtil.toDate(bean.getOperationTime()).getTime()));
@@ -189,21 +189,21 @@ public class PastHistoryServiceImpl extends BaseServiceImpl<Object, Long> implem
 
 	private void checkTypeIsNotZero(PastHistoryReqBean bean) {
 	    if(bean.getSerialNo() == null){
-	    	throw new MyException("序列号不能为空");  
+	    	throw new BusinessException("序列号不能为空");
 	    } else if(bean.getDrugAllergyType() == 0){
-			throw new MyException("请选择是否有过敏药物");
+			throw new BusinessException("请选择是否有过敏药物");
 		} else if(bean.getOperationHistoryType() == 0){
-			throw new MyException("请选择是否有过手术史");
+			throw new BusinessException("请选择是否有过手术史");
 		} else if(bean.getTransfusionHistoryType() == 0){
-			throw new MyException("请选择是否有过输血史");
+			throw new BusinessException("请选择是否有过输血史");
 		} else if(bean.getHepatitisBHistoryType() == 0){
-			throw new MyException("请选择是否是乙肝感染者");
+			throw new BusinessException("请选择是否是乙肝感染者");
 		} else if(bean.getTuberculosisHistoryType() == 0){
-			throw new MyException("请选择是否是结核感染患者");
+			throw new BusinessException("请选择是否是结核感染患者");
 		} else if(bean.getUntreatedDiseaseHistoryType() == 0){
-			throw new MyException("请选择有尚未治愈的疾病");
+			throw new BusinessException("请选择有尚未治愈的疾病");
 		} else if(bean.getHasDrugsBeingUsedType() == 0){
-			throw new MyException("请选择有正在服用的药物");
+			throw new BusinessException("请选择有正在服用的药物");
 		}
 		
 	}

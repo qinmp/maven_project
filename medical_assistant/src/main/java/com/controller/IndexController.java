@@ -4,13 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.exception.MyException;
+import com.exception.BusinessException;
 import com.service.BasicInfoService;
 import com.util.session.SessionUtil;
 
@@ -26,7 +25,7 @@ public class IndexController extends BaseController {
 	public String basicIndex(HttpServletRequest request, ModelMap modelMap){
 		try {
 			basicInfoService.accInfo(request, modelMap);
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
@@ -45,7 +44,7 @@ public class IndexController extends BaseController {
 			//下载报告
 			basicInfoService.downloadReport(request, modelMap, response);
 			
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {
@@ -58,7 +57,7 @@ public class IndexController extends BaseController {
 	public String logout(HttpServletRequest request, ModelMap modelMap) {
 		try {
 			SessionUtil.updateSession(request);
-		} catch (MyException e) {
+		} catch (BusinessException e) {
 			e.printStackTrace();
 			throw e;
 		} catch (Exception e) {

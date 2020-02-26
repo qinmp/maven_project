@@ -20,7 +20,7 @@ import com.bean.enumobj.OtherUDPSymtomTypeEnum;
 import com.bean.enumobj.PainPropertyTypeEnum;
 import com.bean.enumobj.PainTypeEnum;
 import com.bean.enumobj.RelationshipBetweenEatingAndEatingTypeEnum;
-import com.exception.MyException;
+import com.exception.BusinessException;
 import com.model.TAbnormalskin;
 import com.model.TAffectiveSymptoms;
 import com.model.TAstriction;
@@ -697,55 +697,55 @@ public class PresentIllnessServiceImpl extends BaseServiceImpl<Object, Long> imp
 	private void oliguresisUDPCheck(Integer oliguresis,String noticeStr) {
 		// TODO Auto-generated method stub
 		if(oliguresis < 0){
-			throw new MyException(noticeStr);
+			throw new BusinessException(noticeStr);
 		}
 	}
 
 	private void BMICheck(Double weightBMI,String noticeStr) {
 		// TODO Auto-generated method stub
 		if(weightBMI < 0){
-			throw new MyException(noticeStr);
+			throw new BusinessException(noticeStr);
 		}
 	}
 
 	private void heightCheck(Double hight, String noticeStr) {
 		// TODO Auto-generated method stub
 		if(hight < 0){
-			throw new MyException(noticeStr);
+			throw new BusinessException(noticeStr);
 		}
 	}
 
 	private void weightCheck(Double weight, String noticeStr) {
 		// TODO Auto-generated method stub
 		if(weight < 0){
-			throw new MyException(noticeStr);
+			throw new BusinessException(noticeStr);
 		}
 	}
 
 	private void diarrheaTimesCheck(Integer times) {
 		// TODO Auto-generated method stub
 		if(times < 0){
-			throw new MyException("腹泻次数不能少于零次");
+			throw new BusinessException("腹泻次数不能少于零次");
 		}
 	}
 
 	private void feverDegreeCheck(Double hightDegree, Double lowDegree) {
 		// TODO Auto-generated method stub
 		if(hightDegree == null){
-			throw new MyException("最高体温请输入数字");
+			throw new BusinessException("最高体温请输入数字");
 		}
 		if(hightDegree != 0){
 			if(hightDegree < 35 || hightDegree > 45){
-				throw new MyException("体温不能小于35℃或大于45℃");
+				throw new BusinessException("体温不能小于35℃或大于45℃");
 			}
 		}
 		
 		if(lowDegree == null){
-			throw new MyException("最低体温请输入数字");
+			throw new BusinessException("最低体温请输入数字");
 		}
 		if(lowDegree != 0){
 			if(lowDegree < 35 || lowDegree > 45){
-				throw new MyException("体温不能小于35℃或大于45℃");
+				throw new BusinessException("体温不能小于35℃或大于45℃");
 			}
 		}
 	}

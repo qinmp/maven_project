@@ -1,23 +1,13 @@
 package com.util.image;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics2D;
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Random;
 
-import javax.imageio.ImageIO;
-
-/**
- * @Description:验证码生成器
- * @Copyright: 深圳法大大网络科技有限公司 (c)2016
- * @Created Date : 2016年10月8日
- * @author jcf
- * @vesion 2.0
- */
 public class SCaptcha {
 	
 	/** 图片的宽度。 */
