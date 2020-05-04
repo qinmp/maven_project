@@ -39,10 +39,10 @@ public static ExecutorService executorService = null;
 	
 	public  static void main(String[] args)
 	{
-		WordUtil.getTextFromPDF();
-		while(!executorService.isTerminated()){
-			
-		}
+//		WordUtil.getTextFromPDF();
+//		while(!executorService.isTerminated()){
+//
+//		}
 		System.out.println("===============转化完成===============");
 	
 	}
