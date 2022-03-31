@@ -20,7 +20,7 @@
   		<commons-dbcp.version>1.4</commons-dbcp.version>
   		<commons-httpclient.version>3.1</commons-httpclient.version>
   		
-  		<spring.version>4.3.15.RELEASE</spring.version>
+  		<spring.version>5.3.18</spring.version>
   </properties>
     <!-- 设定主仓库，按设定顺序进行查找  -->
   <repositories>
