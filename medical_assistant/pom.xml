@@ -14,7 +14,7 @@
 		<jstl.version>1.2</jstl.version>
 		<spring.version>4.3.7.RELEASE</spring.version>
 		<aopalliance.version>1.0</aopalliance.version>
-		<jackson.version>2.6.4</jackson.version>
+		<jackson.version>2.12.7.1</jackson.version>
 		<slf4j.version>1.7.25</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
 		<ezmorph.version>1.0.6</ezmorph.version>
